@@ -2818,22 +2818,20 @@ export default function App() {
                     })()}
                   </motion.div>
                   
-                  <motion.footer variants={itemVariants} className="mt-24 pt-12 border-t border-black/10">
-                    {/* Author footer */}
-                    <div className="flex flex-col items-center justify-between gap-8 rounded-[20px] border border-black/10 bg-gradient-to-br from-panel/80 to-white/20 p-8 md:flex-row">
-                      <div className="flex items-center gap-4">
-                         <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-accent text-xl font-black uppercase text-white">K</div>
-                         <div>
-                            <p className="text-sm font-black uppercase tracking-tight">KIKA</p>
-                            <p className="font-mono text-[10px] uppercase tracking-widest text-muted">Berlin-Tokyo Hybrid Maker</p>
-                         </div>
+                  <motion.footer variants={itemVariants} className="mt-24 border-t border-black/10 py-10">
+                    <div className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
+                      <div className="space-y-2">
+                        <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted">© KIKA 2026 / PERSONAL SOFTWARE LAB</p>
+                        <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted/75">BUILT WITH AI AND TOO MUCH CURIOSITY.</p>
                       </div>
-                      <button 
-                        onClick={() => navigateTo("home")}
-                        className="h-12 rounded-xl bg-black px-8 font-mono text-[10px] font-black uppercase tracking-widest text-white transition-all hover:-translate-y-0.5 hover:bg-dark"
+                      <a
+                        href="https://github.com/dot-RealityTest"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex h-11 items-center justify-center gap-2 border border-black/10 bg-white/25 px-5 font-mono text-[10px] font-black uppercase tracking-[0.18em] text-black transition-all hover:-translate-y-0.5 hover:border-accent/35 hover:bg-white/45"
                       >
-                        CONTINUE EXPLORING
-                      </button>
+                        GITHUB <ExternalLink size={12} className="text-accent" />
+                      </a>
                     </div>
                   </motion.footer>
 
@@ -2891,38 +2889,23 @@ export default function App() {
         transition={{ delay: 0.2 }}
         className="border-t border-black/10 px-6 py-12"
       >
-        <div className="max-w-[1400px] mx-auto flex flex-col md:flex-row justify-between items-center gap-6 text-center md:text-left">
-          <div className="text-[10px] font-mono text-muted uppercase tracking-widest order-3 md:order-1">
-            © KIKA 2026 / PERSONAL SOFTWARE LAB
+        <div className="mx-auto flex max-w-[1400px] flex-col items-center justify-between gap-6 text-center md:flex-row md:text-left">
+          <div className="space-y-2">
+            <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted">
+              © KIKA 2026 / PERSONAL SOFTWARE LAB
+            </div>
+            <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted/75">
+              BUILT WITH AI AND TOO MUCH CURIOSITY.
+            </div>
           </div>
-
-          <div className="flex items-center gap-8 text-[9px] font-mono text-muted uppercase tracking-[0.2em] order-1 md:order-2">
-            <NavLink 
-              label="ABOUT ME/" 
-              onClick={() => navigateTo("about")}
-            />
-            <NavLink 
-              label="BLOG/" 
-              onClick={() => navigateTo("blog")}
-            />
-            <NavLink 
-              label="BRAND LAB TOOL/" 
-              href="https://brand.akakika.com"
-              isExternal
-            />
-            <a 
-              href="https://akakika.gumroad.com/l/mbrokb" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="hover:text-foreground transition-colors"
-            >
-              GET BRAND LAB $29/
-            </a>
-          </div>
-          
-          <div className="text-[10px] font-mono text-muted uppercase tracking-widest">
-            BUILT WITH AI AND TOO MUCH CURIOSITY.
-          </div>
+          <a
+            href="https://github.com/dot-RealityTest"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex h-11 items-center justify-center gap-2 border border-black/10 bg-white/25 px-5 font-mono text-[10px] font-black uppercase tracking-[0.18em] text-black transition-all hover:-translate-y-0.5 hover:border-accent/35 hover:bg-white/45"
+          >
+            GITHUB <ExternalLink size={12} className="text-accent" />
+          </a>
         </div>
       </motion.footer>
     </div>

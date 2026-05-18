@@ -123,10 +123,13 @@
     .cta-btn span { color: var(--accent); transition: color 0.3s ease; }
     .cta-btn:hover span { color: var(--white); }
 
-    .article-footer { margin-top: 80px; padding: 40px 36px; background: linear-gradient(135deg, var(--panel-light) 0%, rgba(191,191,191,0.3) 100%); border-radius: 16px; border: 1px solid rgba(13,13,13,0.05); position: relative; overflow: hidden; }
-    .article-footer::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--accent) 0%, transparent 100%); }
-    .author-bio { font-size: 0.95rem; color: var(--muted); line-height: 1.7; max-width: 760px; }
-    .author-bio a { color: var(--accent); font-weight: 500; }
+    .article-footer { margin-top: 80px; padding: 40px 0 0; border-top: 1px solid rgba(13,13,13,0.10); }
+    .site-footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+    .footer-info { display: grid; gap: 8px; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); }
+    .footer-info span:last-child { color: rgba(140,140,140,0.78); }
+    .footer-link { min-height: 42px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 0 16px; border: 1px solid rgba(13,13,13,0.10); background: rgba(255,255,255,0.25); color: var(--black); font-family: var(--font-mono); font-size: 10px; font-weight: 900; letter-spacing: 0.18em; text-transform: uppercase; transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease; }
+    .footer-link:hover { transform: translateY(-2px); border-color: rgba(109,128,166,0.35); background: rgba(255,255,255,0.45); }
+    .footer-link svg { width: 12px; height: 12px; color: var(--accent); }
 
     .progress-bar { position: fixed; top: 0; left: 0; height: 2px; background: linear-gradient(90deg, var(--accent) 0%, var(--accent-light) 100%); z-index: 100; width: 0%; transition: width 0.1s linear; box-shadow: 0 0 8px rgba(109,128,166,0.4); }
     .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
@@ -333,9 +336,13 @@
     </div>
 
     <footer class="article-footer reveal">
-      <p class="author-bio">
-        <strong style="color:var(--dark)">Kika</strong> is a Technical Systems Architect based in Tel Aviv. She builds macOS-native tools, curates AI skill collections at <a href="https://v8v.ai">v8v.ai</a>, and believes the best software is the kind you forget you're using.
-      </p>
+      <div class="site-footer-inner">
+        <div class="footer-info">
+          <span>&copy; KIKA 2026 / PERSONAL SOFTWARE LAB</span>
+          <span>BUILT WITH AI AND TOO MUCH CURIOSITY.</span>
+        </div>
+        <a class="footer-link" href="https://github.com/dot-RealityTest" target="_blank" rel="noopener noreferrer">GITHUB <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+      </div>
     </footer>
   </article>
 
