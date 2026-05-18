@@ -64,3 +64,10 @@ Otherwise app landing pages will be swallowed by the React app.
 - `/apps/<id>` is still supported by the React app as an internal fallback, but the visible apps index should send visitors to the standalone landing pages.
 - `focus.akakika.com` currently returns `403`, so the Focus landing page is served at `/focus/` from this site.
 - Root-level QA screenshots are ignored by Git. Public assets under `public/` are intentional site assets.
+
+## Templates
+
+Reusable page starters live in `templates/`.
+
+- `templates/blog-post-template.html` is the current wide, bold blog post template.
+- Copy it into `public/blog/<slug>.html`, replace the placeholders, then add the post to the blog index and `vercel.json` rewrites when needed.
