@@ -29,7 +29,12 @@ vercel alias set <deployment>.vercel.app akakika.com
 vercel alias set <deployment>.vercel.app www.akakika.com
 ```
 
-Do not deploy the older `bobiblog-astro` project for `akakika.com`; it is the previous site shell.
+Do not deploy the older Bobi/Astro projects for `akakika.com`; they were previous site shells and were removed from Vercel on 2026-05-18 to prevent domain mix-ups.
+
+Removed Vercel projects:
+
+- `bobiblog-astro`
+- `bobiblog`
 
 ## App Landing Pages
 
