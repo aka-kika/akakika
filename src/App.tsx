@@ -2110,21 +2110,21 @@ export default function App() {
 
         <div className="flex items-center gap-6 text-[11px] font-bold tracking-tight">
           <NavLink 
-            label="APPS"
-            isActive={view === "apps"}
-            onClick={() => navigateTo("apps")}
-          />
-          <NavLink 
             label="ABOUT"
             isActive={view === "about"}
             onClick={() => navigateTo("about")}
           />
           <NavLink 
-            label="BLOG"
+            label="JOURNAL"
             isActive={view === "blog"}
             onClick={() => navigateTo("blog")}
           />
-          <NavLink 
+          <NavLink
+            label="APPS"
+            isActive={view === "apps"}
+            onClick={() => navigateTo("apps")}
+          />
+          <NavLink
             label="GITHUB"
             href="https://github.com/dot-RealityTest"
             isExternal
@@ -2702,7 +2702,7 @@ export default function App() {
 
               <div className="flex flex-col md:flex-row justify-between items-baseline mb-12 gap-4">
                 <div>
-                  <h2 className="font-display text-6xl italic">BLOG/</h2>
+                  <h2 className="font-display text-6xl italic">JOURNAL/</h2>
                   <p className="text-[10px] font-mono text-muted uppercase tracking-[0.4em] mt-3">ALL POSTS / FULL ARCHIVE</p>
                 </div>
                 <span className="text-[10px] font-mono text-muted uppercase tracking-[0.4em]">TOTAL POSTS: {BLOG_POSTS.length}</span>
