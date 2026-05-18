@@ -25,9 +25,9 @@ This folder is linked to the Vercel project `akakika-v2`.
 
 ```bash
 vercel --prod --yes
-vercel alias set <deployment>.vercel.app akakika.com
-vercel alias set <deployment>.vercel.app www.akakika.com
 ```
+
+The project has `akakika.com` attached in Vercel, so production deploys should report `Aliased: https://akakika.com`. Use manual alias commands only if Vercel does not attach the domain automatically.
 
 Do not deploy the older Bobi/Astro projects for `akakika.com`; they were previous site shells and were removed from Vercel on 2026-05-18 to prevent domain mix-ups.
 
@@ -71,3 +71,13 @@ Reusable page starters live in `templates/`.
 
 - `templates/blog-post-template.html` is the current wide, bold blog post template.
 - Copy it into `public/blog/<slug>.html`, replace the placeholders, then add the post to the blog index and `vercel.json` rewrites when needed.
+
+## Footer Contract
+
+Keep site and blog footers minimal and consistent:
+
+- `© KIKA 2026 / PERSONAL SOFTWARE LAB`
+- `BUILT WITH AI AND TOO MUCH CURIOSITY.`
+- one GitHub link to `https://github.com/dot-RealityTest`
+
+Avoid adding footer nav, product links, author cards, or store links unless the footer direction changes intentionally.
