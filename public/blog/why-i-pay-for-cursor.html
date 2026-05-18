@@ -32,10 +32,15 @@
     .nav-logo { justify-self: start; font-weight: 900; font-size: 20px; line-height: 1; letter-spacing: -0.04em; text-transform: uppercase; color: var(--black); position: relative; }
     .nav-system { justify-self: center; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
     .nav-links { justify-self: end; display: flex; align-items: center; gap: 24px; font-size: 11px; font-weight: 900; line-height: 1; letter-spacing: -0.01em; text-transform: uppercase; color: var(--black); }
-    .nav-links a { transition: color 0.2s ease; }
-    .nav-links a:hover { color: var(--accent); }
+    .nav-links a { position: relative; isolation: isolate; display: inline-flex; align-items: center; gap: 6px; padding: 4px; border-radius: 6px; transition: color 0.2s ease, transform 0.2s ease; }
+    .nav-links a::before { content: ''; position: absolute; inset: 0; z-index: -1; border-radius: 6px; background: rgba(109,128,166,0.06); opacity: 0; transform: scale(0.95); transition: opacity 0.2s ease, transform 0.2s ease; }
+    .nav-links a::after { content: ''; position: absolute; left: 4px; right: 4px; bottom: -3px; height: 1px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 0.32s cubic-bezier(0.2,0.8,0.2,1); }
+    .nav-links a:hover { color: var(--accent); transform: translateY(-1px); }
+    .nav-links a:hover::before { opacity: 1; transform: scale(1.05); }
+    .nav-links a:hover::after { transform: scaleX(1); }
     .nav-external { display: inline-flex; align-items: center; gap: 6px; }
-    .nav-external svg { width: 10px; height: 10px; opacity: 0.55; }
+    .nav-external svg { width: 10px; height: 10px; opacity: 0.55; transition: opacity 0.2s ease, transform 0.2s ease; }
+    .nav-external:hover svg { opacity: 1; transform: translate(1px,-1px); }
 
     .hero { position: relative; padding: 160px 36px 68px; max-width: var(--page-max); margin: 0 auto; }
     .hero-accent-line { position: absolute; top: 110px; left: 36px; width: 60px; height: 3px; background: var(--accent); z-index: 1; }
