@@ -581,15 +581,6 @@ const BlogShare = ({ url, title }: { url: string; title: string }) => {
         <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
         Post
       </a>
-      <a
-        href={`https://news.ycombinator.com/submitlink?u=${shareUrl}&t=${shareTitle}`}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="h-9 px-3 bg-[#ff6600] text-white rounded-lg text-[10px] font-black uppercase tracking-widest hover:opacity-80 transition-all flex items-center gap-2"
-      >
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0v24h24V0H0zm12.8 13.3l3.6-6.6h-2.8L12 9.9l-1.6-3.2H7.6l3.6 6.6v4.1h1.6v-4.1z"/></svg>
-        HN
-      </a>
       <button
         onClick={copyLink}
         className="h-9 px-3 border border-black/10 rounded-lg text-[10px] font-black uppercase tracking-widest hover:bg-black/5 transition-all flex items-center gap-2"
