@@ -2158,7 +2158,6 @@ export default function App() {
                   </motion.h1>
                   <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }} className="mt-4 flex gap-8">
                     <span className="text-[10px] font-mono text-muted uppercase tracking-widest">INDIE DEVELOPER</span>
-                    <span className="text-[10px] font-mono text-muted uppercase tracking-widest">BERLIN / TOKYO</span>
                   </motion.div>
                 </motion.div>
                 
