@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Why I Pay for Cursor Pro — KIKA</title>
+  <meta name="description" content="I don't pay for software easily. So when I tell you I happily pay $20/month for Cursor Pro, this is a calculated decision.">
+  <meta name="author" content="KIKA">
+  <meta name="theme-color" content="#d9d9d9">
+  <link rel="canonical" href="https://akakika.com/blog/why-i-pay-for-cursor">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Why I Pay for Cursor Pro — KIKA">
+  <meta property="og:description" content="I don't pay for software easily. So when I tell you I happily pay $20/month for Cursor Pro, this is a calculated decision.">
+  <meta property="og:url" content="https://akakika.com/blog/why-i-pay-for-cursor">
+  <meta property="og:image" content="https://akakika.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@kika_hub">
+  <meta name="twitter:title" content="Why I Pay for Cursor Pro — KIKA">
+  <meta name="twitter:description" content="I don't pay for software easily. So when I tell you I happily pay $20/month for Cursor Pro, this is a calculated decision.">
+  <link rel="icon" type="image/svg+xml" href="https://akakika.com/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Fira+Sans:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root { --bg: #d9d9d9; --bg-deep: #c8c8c8; --panel: #bfbfbf; --panel-light: #e0e0e0; --muted: #8c8c8c; --dark: #404040; --dark-deep: #2a2a2a; --accent: #6d80a6; --accent-light: #8a9abb; --accent-muted: rgba(109,128,166,0.12); --black: #0d0d0d; --white: #fff; --page-max: 1080px; --article-max: 920px; --font-sans: "Fira Sans", ui-sans-serif, system-ui, sans-serif; --font-title: "Fira Sans", ui-sans-serif, system-ui, sans-serif; --font-mono: "Fira Code", ui-monospace, SFMono-Regular, monospace; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body { background: var(--bg); color: var(--dark); font-family: var(--font-sans); line-height: 1.65; font-size: 17px; overflow-x: hidden; }
+    a { color: inherit; text-decoration: none; }
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 50; background: rgba(217,217,217,0.7); backdrop-filter: blur(24px) saturate(1.3); -webkit-backdrop-filter: blur(24px) saturate(1.3); border-bottom: 1px solid rgba(13,13,13,0.04); }
+    .nav-inner { min-height: 62px; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 24px; padding: 14px 24px; }
+    .nav-logo { justify-self: start; font-weight: 900; font-size: 20px; line-height: 1; letter-spacing: -0.04em; text-transform: uppercase; color: var(--black); position: relative; }
+    .nav-system { justify-self: center; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
+    .nav-links { justify-self: end; display: flex; align-items: center; gap: 24px; font-size: 11px; font-weight: 900; line-height: 1; letter-spacing: -0.01em; text-transform: uppercase; color: var(--black); }
+    .nav-links a { transition: color 0.2s ease; }
+    .nav-links a:hover { color: var(--accent); }
+    .nav-external { display: inline-flex; align-items: center; gap: 6px; }
+    .nav-external svg { width: 10px; height: 10px; opacity: 0.55; }
+
+    .hero { position: relative; padding: 160px 36px 68px; max-width: var(--page-max); margin: 0 auto; }
+    .hero-accent-line { position: absolute; top: 110px; left: 36px; width: 60px; height: 3px; background: var(--accent); z-index: 1; }
+    .hero-accent-line::after { content: ''; position: absolute; top: 0; left: 70px; width: 12px; height: 3px; background: var(--accent); opacity: 0.4; }
+    .hero-meta { position: relative; z-index: 2; display: flex; align-items: center; gap: 12px; margin-bottom: 28px; }
+    .hero-tag { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); background: var(--accent-muted); padding: 5px 12px; border-radius: 4px; border: 1px solid rgba(109,128,166,0.2); }
+    .hero-date { font-size: 13px; color: var(--muted); letter-spacing: 0.03em; }
+    .hero-title { font-family: var(--font-title); font-size: 4.35rem; font-weight: 900; line-height: 0.88; letter-spacing: -0.055em; text-transform: uppercase; color: var(--black); margin-bottom: 28px; max-width: 980px; }
+    .hero-title span { display: block; background: linear-gradient(135deg, var(--black) 0%, var(--dark-deep) 60%, var(--accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .hero-subtitle { font-size: 1.2rem; line-height: 1.62; color: var(--dark); max-width: 760px; padding-left: 18px; border-left: 2px solid var(--accent); }
+    .hero-subtitle strong { font-weight: 700; color: var(--black); }
+
+    .tool-shelf { max-width: var(--page-max); margin: 0 auto; padding: 0 36px 52px; }
+    .shelf-card { position: relative; background: linear-gradient(145deg, var(--panel-light) 0%, var(--bg) 100%); border-radius: 20px; padding: 36px 32px 28px; border: 1px solid rgba(13,13,13,0.05); overflow: hidden; }
+    .shelf-card::before { content: ''; position: absolute; top: -40%; right: -15%; width: 300px; height: 300px; background: radial-gradient(circle, rgba(109,128,166,0.12) 0%, transparent 70%); border-radius: 50%; pointer-events: none; }
+    .shelf-label { font-size: 10px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--accent); margin-bottom: 24px; position: relative; z-index: 1; }
+    .shelf-row { display: flex; align-items: stretch; gap: 14px; position: relative; z-index: 1; flex-wrap: wrap; }
+    .app-icon { flex: 1; min-width: 110px; background: rgba(255,255,255,0.55); backdrop-filter: blur(12px); border: 1px solid rgba(13,13,13,0.06); border-radius: 18px; padding: 22px 14px 14px; text-align: center; transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); cursor: default; }
+    .app-icon:hover { transform: translateY(-8px) scale(1.03); box-shadow: 0 20px 50px rgba(109,128,166,0.15); border-color: rgba(109,128,166,0.25); background: rgba(255,255,255,0.8); }
+    .app-icon-img { width: 64px; height: 64px; margin: 0 auto 12px; border-radius: 14px; object-fit: cover; display: block; }
+    .app-icon-name { font-size: 13px; font-weight: 700; color: var(--black); letter-spacing: 0.01em; margin-bottom: 3px; }
+    .app-icon-role { font-size: 10px; color: var(--muted); line-height: 1.35; letter-spacing: 0.02em; }
+    .shelf-arrow { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 26px; font-size: 10px; color: var(--muted); letter-spacing: 0.12em; text-transform: uppercase; position: relative; z-index: 1; }
+    .shelf-arrow svg { width: 14px; height: 14px; opacity: 0.5; }
+
+    .article-wrap { max-width: var(--article-max); margin: 0 auto; padding: 0 36px 108px; }
+    .section-marker { display: flex; align-items: center; gap: 12px; margin: 60px 0 24px; }
+    .section-marker-line { flex: 1; height: 1px; background: linear-gradient(90deg, transparent 0%, rgba(109,128,166,0.3) 50%, transparent 100%); }
+    .section-marker-num { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; color: var(--accent); text-transform: uppercase; padding: 4px 10px; border: 1px solid rgba(109,128,166,0.25); border-radius: 20px; }
+    .content h2 { font-family: var(--font-mono); font-size: 1.55rem; font-weight: 700; letter-spacing: 0.01em; line-height: 1.08; text-transform: uppercase; margin-bottom: 20px; color: var(--black); position: relative; padding-left: 16px; }
+    .content h2::before { content: ''; position: absolute; left: 0; top: 4px; bottom: 4px; width: 3px; background: var(--accent); border-radius: 2px; }
+    .content h3 { font-size: 1.15rem; font-weight: 900; letter-spacing: 0.01em; line-height: 1.18; text-transform: uppercase; margin-top: 36px; margin-bottom: 14px; color: var(--dark-deep); }
+    .content p { margin-bottom: 20px; color: var(--dark); line-height: 1.7; font-weight: 400; }
+    .content p strong { font-weight: 700; color: var(--black); }
+    .content > p:first-of-type::first-letter { font-size: 3.2rem; font-weight: 900; float: left; line-height: 0.8; padding-right: 10px; padding-top: 4px; color: var(--accent); }
+    .content blockquote { position: relative; padding: 28px 32px; margin: 36px 0; background: linear-gradient(135deg, rgba(109,128,166,0.06) 0%, rgba(191,191,191,0.3) 100%); border-radius: 12px; border-left: 3px solid var(--accent); font-style: normal; }
+    .content blockquote::before { content: '"'; position: absolute; top: 6px; left: 14px; font-size: 3.5rem; font-weight: 900; color: var(--accent); opacity: 0.2; line-height: 1; font-family: Georgia, serif; }
+    .content blockquote p { margin-bottom: 0; font-size: 1.15rem; line-height: 1.55; color: var(--dark-deep); font-weight: 500; position: relative; z-index: 1; }
+    .content ul, .content ol { margin-bottom: 24px; padding-left: 0; list-style: none; }
+    .content li { margin-bottom: 12px; color: var(--dark); line-height: 1.6; padding-left: 24px; position: relative; }
+    .content li::before { content: ''; position: absolute; left: 0; top: 10px; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); opacity: 0.5; }
+    .content a { color: var(--accent); text-decoration: none; border-bottom: 1px solid rgba(109,128,166,0.3); transition: all 0.2s; font-weight: 500; }
+    .content a:hover { border-bottom-color: var(--accent); background: rgba(109,128,166,0.06); }
+    .content code { font-family: var(--font-mono); font-size: 0.85em; background: rgba(13,13,13,0.04); padding: 3px 8px; border-radius: 5px; color: var(--dark-deep); border: 1px solid rgba(13,13,13,0.06); }
+    .content table { width: 100%; border-collapse: separate; border-spacing: 0; margin: 32px 0; font-size: 0.95rem; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(13,13,13,0.04); }
+    .content thead { background: linear-gradient(135deg, var(--panel) 0%, var(--bg-deep) 100%); }
+    .content th { text-align: left; font-weight: 700; padding: 14px 16px; color: var(--black); font-size: 0.8rem; letter-spacing: 0.06em; text-transform: uppercase; border-bottom: 2px solid rgba(109,128,166,0.2); }
+    .content td { padding: 14px 16px; color: var(--dark); border-bottom: 1px solid rgba(13,13,13,0.04); vertical-align: top; background: rgba(255,255,255,0.4); }
+    .content tr:last-child td { border-bottom: none; }
+    .content tr:hover td { background: rgba(109,128,166,0.04); }
+    .content ol { counter-reset: step; padding-left: 0; }
+    .content ol li { counter-increment: step; padding-left: 52px; margin-bottom: 24px; }
+    .content ol li::before { content: counter(step); position: absolute; left: 0; top: 0; width: 32px; height: 32px; border-radius: 50%; background: var(--accent-muted); border: 1px solid rgba(109,128,166,0.2); display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; color: var(--accent); }
+    .content ol li strong { display: block; margin-bottom: 4px; font-size: 1.05rem; }
+
+    .article-footer { margin-top: 80px; padding: 40px 36px; background: linear-gradient(135deg, var(--panel-light) 0%, rgba(191,191,191,0.3) 100%); border-radius: 16px; border: 1px solid rgba(13,13,13,0.05); position: relative; overflow: hidden; }
+    .article-footer::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--accent) 0%, transparent 100%); }
+    .author-bio { font-size: 0.95rem; color: var(--muted); line-height: 1.7; max-width: 760px; }
+    .author-bio a { color: var(--accent); font-weight: 500; }
+
+    .cta-box { position: relative; padding: 36px 32px 32px; margin: 48px 0; background: linear-gradient(135deg, var(--panel-light) 0%, rgba(191,191,191,0.3) 100%); border-radius: 20px; border: 1px solid rgba(13,13,13,0.06); box-shadow: 0 8px 32px rgba(13,13,13,0.04); text-align: center; }
+    .cta-box h3 { font-size: 1.35rem; font-weight: 900; letter-spacing: -0.02em; text-transform: uppercase; color: var(--black); margin-bottom: 12px; }
+    .cta-box p { font-size: 0.95rem; color: var(--muted); margin-bottom: 24px; }
+    .cta-btn { display: inline-block; background: var(--panel); color: var(--dark); padding: 18px 40px; border-radius: 12px; font-weight: 700; font-size: 1.05rem; letter-spacing: 0.04em; transition: all 0.3s ease; border: 1px solid rgba(13,13,13,0.08); box-shadow: 0 2px 8px rgba(13,13,13,0.04); }
+    .cta-btn:hover { background: var(--accent); color: var(--white); border-color: var(--accent); transform: translateY(-3px); box-shadow: 0 14px 36px rgba(109,128,166,0.22); }
+    .cta-btn span { color: var(--accent); transition: color 0.3s ease; }
+    .cta-btn:hover span { color: var(--white); }
+
+    .progress-bar { position: fixed; top: 0; left: 0; height: 2px; background: linear-gradient(90deg, var(--accent) 0%, var(--accent-light) 100%); z-index: 100; width: 0%; transition: width 0.1s linear; box-shadow: 0 0 8px rgba(109,128,166,0.4); }
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 640px) {
+      .hero { padding: 130px 20px 40px; }
+      .hero-title { font-size: 2.25rem; line-height: 0.92; }
+      .hero-subtitle { font-size: 1.05rem; padding-left: 14px; }
+      .hero-accent-line { left: 20px; }
+      .tool-shelf { padding: 0 20px 36px; }
+      .shelf-card { padding: 24px 20px 20px; }
+      .shelf-row { gap: 8px; }
+      .app-icon { min-width: 90px; padding: 16px 8px 10px; }
+      .app-icon-img { width: 52px; height: 52px; border-radius: 10px; }
+      .article-wrap { padding: 0 20px 60px; }
+      .nav-inner { grid-template-columns: 1fr; justify-items: center; gap: 10px; padding: 12px 20px; }
+      .nav-logo { justify-self: center; }
+      .nav-system { display: none; }
+      .nav-links { justify-self: center; gap: 18px; flex-wrap: wrap; }
+      .content > p:first-of-type::first-letter { font-size: 2.4rem; }
+    }
+    @media (min-width: 641px) and (max-width: 900px) {
+      .hero-title { font-size: 3.35rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="progress-bar" id="progress"></div>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">KIKA/</a>
+      <div class="nav-system">FOR PEOPLE WHO THINK IN SYSTEMS</div>
+      <div class="nav-links">
+        <a href="/apps">APPS</a>
+        <a href="/about">ABOUT</a>
+        <a href="/blog">BLOG</a>
+        <a href="https://github.com/dot-RealityTest" target="_blank" rel="noopener noreferrer" class="nav-external">
+          GITHUB
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-accent-line"></div>
+    <div class="hero-meta">
+      <span class="hero-tag">WorkfLow</span>
+      <span class="hero-date">May 2026 &middot; Kika (Nica Loren)</span>
+    </div>
+    <h1 class="hero-title"><span>Why I Pay for Cursor Pro &mdash; And the Exact Workflows That Justify It</span></h1>
+    <p class="hero-subtitle">
+      I don't pay for software easily. So when I tell you I happily pay $20/month for Cursor Pro, understand that this is not a default decision. It's a calculated one.
+    </p>
+  </header>
+
+  <section class="tool-shelf reveal">
+    <div class="shelf-card">
+      <div class="shelf-label">My Cursor Stack</div>
+      <div class="shelf-row">
+        <div class="app-icon">
+          <img src="icons/memory_app_icon.png" alt="Pieces OS" class="app-icon-img">
+          <div class="app-icon-name">Pieces OS</div>
+          <div class="app-icon-role">Long-term context &amp; memory</div>
+        </div>
+        <div class="app-icon">
+          <img src="icons/terminal_app_icon.png" alt="Cursor" class="app-icon-img">
+          <div class="app-icon-name">Cursor Pro</div>
+          <div class="app-icon-role">Agentic code editing</div>
+        </div>
+        <div class="app-icon">
+          <img src="icons/code_app_icon.png" alt="Codex" class="app-icon-img">
+          <div class="app-icon-name">Codex</div>
+          <div class="app-icon-role">CLI project scaffolding</div>
+        </div>
+        <div class="app-icon">
+          <img src="icons/ollama_icon.png" alt="Ollama" class="app-icon-img">
+          <div class="app-icon-name">Ollama</div>
+          <div class="app-icon-role">Local inference, no cloud</div>
+        </div>
+        <div class="app-icon">
+          <img src="icons/mustache_icon.png" alt="Lapapi" class="app-icon-img">
+          <div class="app-icon-name">Lapapi</div>
+          <div class="app-icon-role">Workflow routing hub</div>
+        </div>
+      </div>
+      <div class="shelf-arrow">
+        Pieces remembers &middot; Cursor edits &middot; Codex deploys &middot; Ollama reasons local &middot; Lapapi routes
+      </div>
+    </div>
+  </section>
+
+  <article class="article-wrap">
+    <div class="content">
+      <p>I don't pay for software easily.</p>
+
+      <p>My stack is aggressively local-first. I run Ollama on my M4 Max. I self-host dashboards. I removed MongoDB backends and replaced them with JSON files. I build my own tools when the existing ones get bloated.</p>
+
+      <p>So when I tell you I happily pay <strong>$20/month for Cursor Pro</strong>, understand that this is not a default decision. It's a calculated one. Cursor is the only AI tool in my entire stack that I pay for monthly &mdash; and it's not even close.</p>
+
+      <div class="section-marker reveal"><div class="section-marker-line"></div><span class="section-marker-num">What Cursor Does Differently</span><div class="section-marker-line"></div></div>
+      <h2 class="reveal">What Cursor Actually Does Differently</h2>
+      <p class="reveal">Every AI code editor promises the same thing: "write code faster." That's not why I use Cursor.</p>
+      <p class="reveal">I use Cursor because it's the only tool that treats my <strong>entire codebase as context</strong> &mdash; not just the open file, not just the last 10 lines. Cursor sees the dependencies, the types, the patterns, the architecture decisions I made three weeks ago and forgot about.</p>
+      <p class="reveal">Here's what that means in practice:</p>
+      <ul class="reveal">
+        <li>I can type <code>@</code> and reference my <code>AGENTS.md</code>, <code>README.md</code>, or any file &mdash; and Cursor reads them inline, no copy-paste</li>
+        <li>I can highlight an error and hit <code>Ctrl+K</code> &mdash; it fixes it using the actual types from my project, not generic guesses</li>
+        <li>I can say "refactor this to use the pattern from <code>PopoverView.swift</code>" and it knows exactly what I mean</li>
+        <li>Tab completions feel like they read my mind because they <em>did</em> &mdash; they read my entire project</li>
+      </ul>
+      <p class="reveal">Other editors give you a chatbot in a sidebar. Cursor gives you an agent that <strong>lives inside your code</strong>.</p>
+
+      <div class="section-marker reveal"><div class="section-marker-line"></div><span class="section-marker-num">Real Workflows</span><div class="section-marker-line"></div></div>
+      <h2 class="reveal">My Real Cursor Workflows</h2>
+      <p class="reveal">I don't use Cursor for everything. I use it for specific, high-leverage moments. Here's what my actual usage looks like:</p>
+
+      <h3 class="reveal">1. Project Scaffolding &amp; Architecture</h3>
+      <p class="reveal">When I start a new macOS app or Tauri project, I don't write boilerplate. I describe the architecture in natural language, and Cursor generates:</p>
+      <ul class="reveal">
+        <li>The folder structure</li>
+        <li>The SwiftUI views with proper <code>@State</code> bindings</li>
+        <li>The Tauri <code>tauri.conf.json</code> with correct ports and commands</li>
+        <li>The <code>AGENTS.md</code> with project-specific rules for my agent fleet</li>
+      </ul>
+      <p class="reveal">Last week I built a landing page for KikaColorBar. Cursor generated the full Vite + React scaffold, wired the Tauri config, and handled the dev server setup. What would have been 45 minutes of boilerplate was done in 3.</p>
+
+      <h3 class="reveal">2. Debugging With Context</h3>
+      <p class="reveal">The worst debugging isn't hard bugs. It's bugs you already solved in another file.</p>
+      <p class="reveal">I hit a Tauri build error last month: <code>beforeDevCommand called corepack pnpm dev, but corepack was not found on PATH</code>. Cursor didn't just tell me "check your PATH." It:</p>
+      <ol class="reveal">
+        <li>Read my <code>tauri.conf.json</code></li>
+        <li>Saw I was using <code>pnpm</code> not <code>npm</code></li>
+        <li>Suggested changing <code>"beforeDevCommand": "corepack pnpm dev"</code> to <code>"beforeDevCommand": "pnpm dev"</code></li>
+        <li>Generated the exact diff</li>
+      </ol>
+      <p class="reveal">One prompt. No Stack Overflow. No context switching.</p>
+
+      <h3 class="reveal">3. Refactoring Across Files</h3>
+      <p class="reveal">I recently removed all Claude integration from Lapapi. This meant deleting connector files, updating the UI, refactoring the settings page, and updating <code>AGENTS.md</code> documentation.</p>
+      <p class="reveal">Cursor handled the cross-file refactoring in a single Composer session. It found every reference, suggested the deletions, and verified nothing broke. I reviewed each change. Total time: 12 minutes. Manual time: probably an hour and a missed reference.</p>
+
+      <h3 class="reveal">4. Agent Memory &amp; Continual Learning</h3>
+      <p class="reveal">This is where it gets meta. I have a <code>continual-learning</code> skill that scans my Cursor agent transcripts and extracts reusable patterns. Cursor helps me write the regex that parses agent logs, generate the JSON schema for the memory index, and suggest when patterns should become formal skills.</p>
+      <p class="reveal">It's not just coding. It's <strong>codifying my own workflow</strong> so my agents get smarter over time.</p>
+
+      <div class="section-marker reveal"><div class="section-marker-line"></div><span class="section-marker-num">Limits</span><div class="section-marker-line"></div></div>
+      <h2 class="reveal">What I Don't Use Cursor For</h2>
+      <p class="reveal">Honesty matters. Here's where Cursor stays closed:</p>
+      <table class="reveal">
+        <thead><tr><th>Not For</th><th>Why</th></tr></thead>
+        <tbody>
+          <tr><td><strong>System architecture decisions</strong></td><td>I think in ChatGPT. Broader context, deeper reasoning.</td></tr>
+          <tr><td><strong>Design &amp; creative direction</strong></td><td>ChatGPT + GPT Image 2 for brand, Lovart for visuals.</td></tr>
+          <tr><td><strong>Local-only tasks</strong></td><td>Ollama with <code>qwen3.6:27b</code> &mdash; no cloud needed.</td></tr>
+          <tr><td><strong>Infrastructure &amp; DevOps</strong></td><td>Codex CLI for server setup, shell scripts, deployment.</td></tr>
+          <tr><td><strong>Memory &amp; context persistence</strong></td><td>Pieces OS. Cursor doesn't remember across projects.</td></tr>
+        </tbody>
+      </table>
+      <p class="reveal">Cursor is my <strong>implementation</strong> layer. Not my strategy layer. Not my memory layer. The moment I try to make it everything, it becomes nothing.</p>
+
+      <div class="section-marker reveal"><div class="section-marker-line"></div><span class="section-marker-num">The Pro Plan</span><div class="section-marker-line"></div></div>
+      <h2 class="reveal">The Pro Plan: What's Actually Worth It</h2>
+      <p class="reveal">The free tier is generous. I used it for two weeks before upgrading. Here's what pushed me over:</p>
+      <ul class="reveal">
+        <li><strong>Unlimited fast requests</strong> &mdash; Slow completions kill flow state. Pro gives you GPT-4 level speed without throttling.</li>
+        <li><strong>Composer</strong> &mdash; The multi-file editing agent. This alone justifies the price. I use it 10x more than chat.</li>
+        <li><strong>Custom models</strong> &mdash; I can bring my own API keys if I want, but the default models are good enough that I don't bother.</li>
+        <li><strong>Team features</strong> &mdash; When I collaborate, shared context and <code>@</code>-mentions across the team codebase is magic.</li>
+      </ul>
+      <p class="reveal">At $20/month, if Composer saves me one 30-minute refactoring session, it paid for itself. It saves me that every week.</p>
+
+      <div class="section-marker reveal"><div class="section-marker-line"></div><span class="section-marker-num">The Real Cost</span><div class="section-marker-line"></div></div>
+      <h2 class="reveal">The Real Cost of Not Using It</h2>
+      <p class="reveal">I measured this. Before Cursor, my workflow was:</p>
+      <ol class="reveal">
+        <li>Open project</li>
+        <li>Try to remember where I left off</li>
+        <li>Open ChatGPT, explain the context</li>
+        <li>Copy-paste code suggestions</li>
+        <li>Fix the imports manually</li>
+        <li>Realize the suggestion doesn't fit my architecture</li>
+        <li>Repeat</li>
+      </ol>
+      <p class="reveal">Now it's:</p>
+      <ol class="reveal">
+        <li>Open Cursor</li>
+        <li><code>@AGENTS.md</code> &mdash; "implement the next feature from TASKS.md"</li>
+        <li>Review, adjust, commit</li>
+      </ol>
+      <p class="reveal">The loop went from 20+ minutes to under 5. That's not a productivity hack. That's a <strong>different category of work</strong>.</p>
+
+      <div class="section-marker reveal"><div class="section-marker-line"></div><span class="section-marker-num">Try It</span><div class="section-marker-line"></div></div>
+      <h2 class="reveal">How to Try It</h2>
+      <p class="reveal">If you write code &mdash; whether that's full apps, scripts, or automation &mdash; Cursor is worth at least trying.</p>
+      <p class="reveal">The free tier gives you 14 days of Pro features. No credit card. No lock-in. Just install it, open a project you know well, and try the <code>@</code> context references. The first time it pulls in types from three files you didn't mention, you'll get it.</p>
+
+      <div class="cta-box reveal">
+        <h3>Try Cursor Pro Free for 14 Days</h3>
+        <p>If you decide to upgrade, use my referral link &mdash; you'll get <strong>50% off your first month</strong> (that's $10 instead of $20), and I'll get $25 in Cursor credit toward my own Pro plan. It's basically a win-win.</p>
+        <a href="https://cursor.com/referral?code=6NMXPNV0QANR" class="cta-btn" target="_blank" rel="noopener">Try Cursor Pro <span>&rarr;</span></a>
+      </div>
+
+      <p class="reveal">No pressure. The free tier is real. But if Cursor saves you even 30 minutes in your first week, the Pro upgrade pays for itself in productivity.</p>
+
+      <div class="section-marker reveal"><div class="section-marker-line"></div><span class="section-marker-num">Philosophy</span><div class="section-marker-line"></div></div>
+      <h2 class="reveal">The Philosophy: Tools Should Earn Their Place</h2>
+      <p class="reveal">I remove tools from my stack constantly. I removed Claude integration entirely. I removed MongoDB. I removed Cloudflare R2. Every tool has to justify its existence every month.</p>
+      <p class="reveal">Cursor is one of the few that doesn't just stay &mdash; it becomes more valuable the deeper I integrate it. It's not replacing my thinking. It's removing the friction between my thinking and the code.</p>
+      <blockquote class="reveal">
+        <p>The model matters less than the workflow. A mediocre model with perfect context routing beats a frontier model with zero memory.</p>
+      </blockquote>
+      <p class="reveal">That's the bar: <strong>not smarter than me, but fast enough that I stay in flow.</strong></p>
+      <p class="reveal">Cursor clears that bar. Everything else is noise.</p>
+
+      <div class="cta-box reveal">
+        <h3>Find the Tools I Actually Watch</h3>
+        <p>UND-RDR is my living archive of under-the-radar open-source projects, dev tools, and small systems worth catching early.</p>
+        <a href="https://undrdr.com/" class="cta-btn" target="_blank" rel="noopener">Open UND-RDR <span>&rarr;</span></a>
+      </div>
+    </div>
+
+    <footer class="article-footer reveal">
+      <p class="author-bio">
+        <strong style="color:var(--dark)">Kika</strong> is a Technical Systems Architect based in Tel Aviv. She builds macOS-native tools, curates AI skill collections at <a href="https://v8v.ai">v8v.ai</a>, and believes the best software is the kind that disappears into your workflow.
+      </p>
+    </footer>
+  </article>
+
+  <script>
+    const progress = document.getElementById('progress');
+    window.addEventListener('scroll', () => {
+      const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+      const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const pct = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+      progress.style.width = pct + '%';
+    });
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

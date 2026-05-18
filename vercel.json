@@ -1,0 +1,117 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "framework": null,
+  "rewrites": [
+    { "source": "/blog/my-workflow-routing", "destination": "/blog/my-workflow-routing.html" },
+    { "source": "/blog/why-i-built-lapapi", "destination": "/blog/why-i-built-lapapi.html" },
+    { "source": "/blog/why-i-pay-for-cursor", "destination": "/blog/why-i-pay-for-cursor.html" },
+    { "source": "/undrdr/graph", "destination": "/undrdr/graph/index.html" },
+    { "source": "/undrdr/graph/(.*)", "destination": "/undrdr/graph/$1" },
+    { "source": "/undrdr", "destination": "/undrdr/index.html" },
+    { "source": "/undrdr/(.*)", "destination": "/undrdr/$1" },
+    { "source": "/brand", "destination": "/brand/index.html" },
+    { "source": "/brand/(.*)", "destination": "/brand/$1" },
+    { "source": "/hex", "destination": "/hex/index.html" },
+    { "source": "/hex/", "destination": "/hex/index.html" },
+    { "source": "/hex/(.*)", "destination": "/hex/$1" },
+    { "source": "/breakpoint", "destination": "/breakpoint/index.html" },
+    { "source": "/breakpoint/", "destination": "/breakpoint/index.html" },
+    { "source": "/breakpoint/(.*)", "destination": "/breakpoint/$1" },
+    { "source": "/localhostwatcher", "destination": "/localhostwatcher/index.html" },
+    { "source": "/localhostwatcher/", "destination": "/localhostwatcher/index.html" },
+    { "source": "/localhostwatcher/(.*)", "destination": "/localhostwatcher/$1" },
+    { "source": "/dgmd", "destination": "/dgmd/index.html" },
+    { "source": "/dgmd/", "destination": "/dgmd/index.html" },
+    { "source": "/dgmd/(.*)", "destination": "/dgmd/$1" },
+    { "source": "/resq", "destination": "/resq/index.html" },
+    { "source": "/resq/", "destination": "/resq/index.html" },
+    { "source": "/resq/(.*)", "destination": "/resq/$1" },
+    { "source": "/mochi", "destination": "/mochi/index.html" },
+    { "source": "/mochi/", "destination": "/mochi/index.html" },
+    { "source": "/mochi/(.*)", "destination": "/mochi/$1" },
+    { "source": "/clipsan", "destination": "/clipsan/index.html" },
+    { "source": "/clipsan/", "destination": "/clipsan/index.html" },
+    { "source": "/clipsan/(.*)", "destination": "/clipsan/$1" },
+    { "source": "/focus", "destination": "/focus/index.html" },
+    { "source": "/focus/", "destination": "/focus/index.html" },
+    { "source": "/focus/(.*)", "destination": "/focus/$1" },
+    { "source": "/folderwardrobe", "destination": "/folderwardrobe/index.html" },
+    { "source": "/folderwardrobe/", "destination": "/folderwardrobe/index.html" },
+    { "source": "/folderwardrobe/(.*)", "destination": "/folderwardrobe/$1" },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/undrdr/graph/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-cache, no-store, must-revalidate" }
+      ]
+    },
+    {
+      "source": "/(robots.txt|sitemap.xml|favicon.svg)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
+        }
+      ]
+    },
+    {
+      "source": "/assets/data/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache, no-store, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/brand/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/hex/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    }
+  ]
+}

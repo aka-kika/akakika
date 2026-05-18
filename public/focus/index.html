@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Focus for macOS</title>
+    <meta
+      name="description"
+      content="Focus is a lightweight native Mac utility for small daily focus. Fast to open, compact, keyboard-friendly, and visually calm."
+    />
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #111111;
+        --muted: #747474;
+        --line: rgba(0, 0, 0, 0.12);
+        --wash: #eeeeec;
+        --accent: #d6a900;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background:
+          radial-gradient(circle at 18% 20%, rgba(250, 204, 21, 0.14), transparent 24rem),
+          linear-gradient(135deg, #f6f6f3, #e4e5e2);
+        color: var(--ink);
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .shell {
+        width: min(1180px, calc(100% - 48px));
+        margin: 0 auto;
+      }
+
+      nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 72px;
+        border-bottom: 1px solid var(--line);
+        font-size: 11px;
+        font-weight: 900;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .brand {
+        font-size: 18px;
+        letter-spacing: -0.08em;
+      }
+
+      .navlinks {
+        display: flex;
+        gap: 28px;
+      }
+
+      main {
+        padding: clamp(64px, 11vw, 150px) 0 72px;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 32px;
+        color: var(--muted);
+        font-size: 11px;
+        font-weight: 900;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+      }
+
+      .eyebrow::before {
+        content: "";
+        width: 42px;
+        height: 2px;
+        background: var(--accent);
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 300px;
+        gap: clamp(40px, 8vw, 120px);
+        align-items: center;
+      }
+
+      h1 {
+        margin: 0;
+        max-width: 920px;
+        font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+        font-size: clamp(74px, 14vw, 190px);
+        line-height: 0.82;
+        letter-spacing: -0.07em;
+        text-transform: uppercase;
+      }
+
+      .lead {
+        max-width: 760px;
+        margin: 34px 0 0;
+        border-left: 3px solid var(--accent);
+        padding-left: 24px;
+        color: #343434;
+        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        font-size: clamp(23px, 4vw, 42px);
+        font-weight: 800;
+        line-height: 1.12;
+      }
+
+      .icon-card {
+        aspect-ratio: 1;
+        display: grid;
+        place-items: center;
+        border: 1px solid var(--line);
+        border-radius: 36px;
+        background: rgba(255, 255, 255, 0.34);
+        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.08);
+      }
+
+      .icon {
+        width: 58%;
+        aspect-ratio: 1;
+        border-radius: 32px;
+        object-fit: cover;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7), 0 22px 50px rgba(214, 169, 0, 0.32);
+      }
+
+      .panel {
+        margin-top: clamp(64px, 10vw, 120px);
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .cell {
+        min-height: 180px;
+        padding: 30px;
+        border-right: 1px solid var(--line);
+      }
+
+      .cell:last-child {
+        border-right: 0;
+      }
+
+      .cell span {
+        display: block;
+        margin-bottom: 26px;
+        color: var(--muted);
+        font-size: 10px;
+        font-weight: 900;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+      }
+
+      .cell p {
+        margin: 0;
+        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        font-size: 20px;
+        font-weight: 750;
+        line-height: 1.3;
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin-top: 42px;
+      }
+
+      .button {
+        display: inline-flex;
+        min-height: 54px;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--ink);
+        padding: 0 24px;
+        background: var(--ink);
+        color: white;
+        font-size: 11px;
+        font-weight: 900;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      .button.secondary {
+        background: transparent;
+        color: var(--ink);
+      }
+
+      footer {
+        display: flex;
+        justify-content: space-between;
+        gap: 24px;
+        padding: 28px 0 42px;
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+        font-size: 10px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+      }
+
+      @media (max-width: 760px) {
+        .shell {
+          width: min(100% - 28px, 1180px);
+        }
+
+        .navlinks {
+          gap: 14px;
+          font-size: 10px;
+        }
+
+        .hero,
+        .panel {
+          grid-template-columns: 1fr;
+        }
+
+        .icon-card {
+          max-width: 220px;
+        }
+
+        .cell {
+          border-right: 0;
+          border-bottom: 1px solid var(--line);
+        }
+
+        .cell:last-child {
+          border-bottom: 0;
+        }
+
+        footer {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="shell">
+      <a class="brand" href="/">KIKA/</a>
+      <div class="navlinks">
+        <a href="/apps">Apps</a>
+        <a href="/blog">Blog</a>
+        <a href="https://github.com/dot-RealityTest">GitHub</a>
+      </div>
+    </nav>
+
+    <main class="shell">
+      <div class="eyebrow">macOS task utility</div>
+      <section class="hero">
+        <div>
+          <h1>Focus</h1>
+          <p class="lead">A lightweight native Mac utility for small daily focus. Fast to open, compact, keyboard-friendly, and visually calm.</p>
+          <div class="actions">
+            <a class="button" href="/focus/Focus-Notarized.dmg">Download Free</a>
+            <a class="button secondary" href="https://github.com/dot-RealityTest">KIKA GitHub</a>
+          </div>
+        </div>
+        <div class="icon-card" aria-hidden="true">
+          <img class="icon" src="/focus/icon_1024x1024.png" alt="" />
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="cell">
+          <span>Designed For</span>
+          <p>Small daily focus sessions without turning work into a giant task-management ceremony.</p>
+        </div>
+        <div class="cell">
+          <span>Interaction</span>
+          <p>Keyboard-first, quick to open, compact enough to stay out of the way.</p>
+        </div>
+        <div class="cell">
+          <span>Principle</span>
+          <p>Local-first utility. Calm interface. No cloud ritual required.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="shell">
+      <span>© KIKA 2026</span>
+      <span>Personal Software Lab</span>
+    </footer>
+  </body>
+</html>

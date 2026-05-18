@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How I Orchestrate My Entire Workflow — KIKA</title>
+  <meta name="description" content="I don't code alone anymore. Here's how Pieces OS, Lapapi, Codex, and ChatGPT work together as my agent fleet.">
+  <meta name="author" content="KIKA">
+  <meta name="theme-color" content="#d9d9d9">
+  <link rel="canonical" href="https://akakika.com/blog/my-workflow-routing">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="How I Orchestrate My Entire Workflow — KIKA">
+  <meta property="og:description" content="From Pieces Memory to Codex Agents to ChatGPT. A real breakdown of a sovereign technologist's AI stack.">
+  <meta property="og:url" content="https://akakika.com/blog/my-workflow-routing">
+  <meta property="og:image" content="https://akakika.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@kika_hub">
+  <meta name="twitter:title" content="How I Orchestrate My Entire Workflow — KIKA">
+  <meta name="twitter:description" content="From Pieces Memory to Codex Agents to ChatGPT. A real breakdown of a sovereign technologist's AI stack.">
+  <link rel="icon" type="image/svg+xml" href="https://akakika.com/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Fira+Sans:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #d9d9d9; --bg-deep: #c8c8c8; --panel: #bfbfbf; --panel-light: #e0e0e0;
+      --muted: #8c8c8c; --dark: #404040; --dark-deep: #2a2a2a; --accent: #6d80a6;
+      --accent-light: #8a9abb; --accent-muted: rgba(109,128,166,0.12);
+      --black: #0d0d0d; --white: #fff;
+      --page-max: 1080px; --article-max: 920px;
+      --font-sans: "Fira Sans", ui-sans-serif, system-ui, sans-serif;
+      --font-title: "Fira Sans", ui-sans-serif, system-ui, sans-serif;
+      --font-mono: "Fira Code", ui-monospace, SFMono-Regular, monospace;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body { background: var(--bg); color: var(--dark); font-family: var(--font-sans); line-height: 1.65; font-size: 17px; overflow-x: hidden; }
+    a { color: inherit; text-decoration: none; }
+
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 50; background: rgba(217,217,217,0.7); backdrop-filter: blur(24px) saturate(1.3); -webkit-backdrop-filter: blur(24px) saturate(1.3); border-bottom: 1px solid rgba(13,13,13,0.04); }
+    .nav-inner { min-height: 62px; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 24px; padding: 14px 24px; }
+    .nav-logo { justify-self: start; font-weight: 900; font-size: 20px; line-height: 1; letter-spacing: -0.04em; text-transform: uppercase; color: var(--black); position: relative; }
+    .nav-system { justify-self: center; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
+    .nav-links { justify-self: end; display: flex; align-items: center; gap: 24px; font-size: 11px; font-weight: 900; line-height: 1; letter-spacing: -0.01em; text-transform: uppercase; color: var(--black); }
+    .nav-links a { transition: color 0.2s ease; }
+    .nav-links a:hover { color: var(--accent); }
+    .nav-external { display: inline-flex; align-items: center; gap: 6px; }
+    .nav-external svg { width: 10px; height: 10px; opacity: 0.55; }
+
+    .hero { position: relative; padding: 160px 36px 68px; max-width: var(--page-max); margin: 0 auto; }
+    .hero-accent-line { position: absolute; top: 110px; left: 36px; width: 60px; height: 3px; background: var(--accent); z-index: 1; }
+    .hero-accent-line::after { content: ''; position: absolute; top: 0; left: 70px; width: 12px; height: 3px; background: var(--accent); opacity: 0.4; }
+    .hero-meta { position: relative; z-index: 2; display: flex; align-items: center; gap: 12px; margin-bottom: 28px; }
+    .hero-tag { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); background: var(--accent-muted); padding: 5px 12px; border-radius: 4px; border: 1px solid rgba(109,128,166,0.2); }
+    .hero-date { font-size: 13px; color: var(--muted); letter-spacing: 0.03em; }
+    .hero-title { font-family: var(--font-title); font-size: 4.35rem; font-weight: 900; line-height: 0.88; letter-spacing: -0.055em; text-transform: uppercase; color: var(--black); margin-bottom: 28px; max-width: 980px; }
+    .hero-title span { display: block; background: linear-gradient(135deg, var(--black) 0%, var(--dark-deep) 60%, var(--accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .hero-subtitle { font-size: 1.2rem; line-height: 1.62; color: var(--dark); max-width: 760px; padding-left: 18px; border-left: 2px solid var(--accent); }
+    .hero-subtitle strong { font-weight: 700; color: var(--black); }
+
+    /* ════════ TOOL SHELF — NO FRAMES ════════ */
+    .tool-shelf { max-width: var(--page-max); margin: 0 auto; padding: 0 36px 52px; }
+    .shelf-card { position: relative; padding: 24px 0 0; }
+    .shelf-label { font-size: 10px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; }
+    .shelf-row { display: flex; align-items: stretch; gap: 16px; flex-wrap: wrap; }
+    .app-icon { flex: 1; min-width: 110px; text-align: center; transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); cursor: default; }
+    .app-icon:hover { transform: translateY(-6px); }
+    .app-icon-img { width: 72px; height: 72px; margin: 0 auto 10px; border-radius: 16px; object-fit: cover; display: block; }
+    .app-icon-name { font-size: 13px; font-weight: 700; color: var(--black); letter-spacing: 0.01em; margin-bottom: 3px; }
+    .app-icon-role { font-size: 10px; color: var(--muted); line-height: 1.35; letter-spacing: 0.02em; }
+    .shelf-arrow { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 28px; font-size: 10px; color: var(--muted); letter-spacing: 0.12em; text-transform: uppercase; }
+    .shelf-arrow svg { width: 14px; height: 14px; opacity: 0.5; }
+
+    .article-wrap { max-width: var(--article-max); margin: 0 auto; padding: 0 36px 108px; }
+    .section-marker { display: flex; align-items: center; gap: 12px; margin: 60px 0 24px; }
+    .section-marker-line { flex: 1; height: 1px; background: linear-gradient(90deg, transparent 0%, rgba(109,128,166,0.3) 50%, transparent 100%); }
+    .section-marker-num { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; color: var(--accent); text-transform: uppercase; padding: 4px 10px; border: 1px solid rgba(109,128,166,0.25); border-radius: 20px; }
+    .content h2 { font-family: var(--font-mono); font-size: 1.55rem; font-weight: 700; letter-spacing: 0.01em; line-height: 1.08; text-transform: uppercase; margin-bottom: 20px; color: var(--black); position: relative; padding-left: 16px; }
+    .content h2::before { content: ''; position: absolute; left: 0; top: 4px; bottom: 4px; width: 3px; background: var(--accent); border-radius: 2px; }
+    .content h3 { font-size: 1.15rem; font-weight: 900; letter-spacing: 0.01em; line-height: 1.18; text-transform: uppercase; margin-top: 36px; margin-bottom: 14px; color: var(--dark-deep); }
+    .content p { margin-bottom: 20px; color: var(--dark); line-height: 1.7; font-weight: 400; }
+    .content p strong { font-weight: 700; color: var(--black); }
+    .content > p:first-of-type::first-letter { font-size: 3.2rem; font-weight: 900; float: left; line-height: 0.8; padding-right: 10px; padding-top: 4px; color: var(--accent); }
+    .content blockquote { position: relative; padding: 28px 32px; margin: 36px 0; background: linear-gradient(135deg, rgba(109,128,166,0.06) 0%, rgba(191,191,191,0.3) 100%); border-radius: 12px; border-left: 3px solid var(--accent); font-style: normal; }
+    .content blockquote::before { content: '"'; position: absolute; top: 6px; left: 14px; font-size: 3.5rem; font-weight: 900; color: var(--accent); opacity: 0.2; line-height: 1; font-family: Georgia, serif; }
+    .content blockquote p { margin-bottom: 0; font-size: 1.15rem; line-height: 1.55; color: var(--dark-deep); font-weight: 500; position: relative; z-index: 1; }
+    .content ul, .content ol { margin-bottom: 24px; padding-left: 0; list-style: none; }
+    .content li { margin-bottom: 12px; color: var(--dark); line-height: 1.6; padding-left: 24px; position: relative; }
+    .content li::before { content: ''; position: absolute; left: 0; top: 10px; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); opacity: 0.5; }
+    .content a { color: var(--accent); text-decoration: none; border-bottom: 1px solid rgba(109,128,166,0.3); transition: all 0.2s; font-weight: 500; }
+    .content a:hover { border-bottom-color: var(--accent); background: rgba(109,128,166,0.06); }
+    .content code { font-family: var(--font-mono); font-size: 0.85em; background: rgba(13,13,13,0.04); padding: 3px 8px; border-radius: 5px; color: var(--dark-deep); border: 1px solid rgba(13,13,13,0.06); }
+    .content table { width: 100%; border-collapse: separate; border-spacing: 0; margin: 32px 0; font-size: 0.95rem; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(13,13,13,0.04); }
+    .content thead { background: linear-gradient(135deg, var(--panel) 0%, var(--bg-deep) 100%); }
+    .content th { text-align: left; font-weight: 700; padding: 14px 16px; color: var(--black); font-size: 0.8rem; letter-spacing: 0.06em; text-transform: uppercase; border-bottom: 2px solid rgba(109,128,166,0.2); }
+    .content td { padding: 14px 16px; color: var(--dark); border-bottom: 1px solid rgba(13,13,13,0.04); vertical-align: top; background: rgba(255,255,255,0.4); }
+    .content tr:last-child td { border-bottom: none; }
+    .content tr:hover td { background: rgba(109,128,166,0.04); }
+    .content ol { counter-reset: step; padding-left: 0; }
+    .content ol li { counter-increment: step; padding-left: 52px; margin-bottom: 24px; }
+    .content ol li::before { content: counter(step); position: absolute; left: 0; top: 0; width: 32px; height: 32px; border-radius: 50%; background: var(--accent-muted); border: 1px solid rgba(109,128,166,0.2); display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; color: var(--accent); }
+    .content ol li strong { display: block; margin-bottom: 4px; font-size: 1.05rem; }
+
+    .cta-box { position: relative; padding: 36px 32px 32px; margin: 48px 0; background: linear-gradient(135deg, var(--panel-light) 0%, rgba(191,191,191,0.3) 100%); border-radius: 20px; border: 1px solid rgba(13,13,13,0.06); box-shadow: 0 8px 32px rgba(13,13,13,0.04); text-align: center; }
+    .cta-box h3 { font-size: 1.35rem; font-weight: 900; letter-spacing: -0.02em; text-transform: uppercase; color: var(--black); margin-bottom: 12px; }
+    .cta-box p { font-size: 0.95rem; color: var(--muted); margin-bottom: 24px; }
+    .cta-btn { display: inline-block; background: var(--panel); color: var(--dark); padding: 18px 40px; border-radius: 12px; font-weight: 700; font-size: 1.05rem; letter-spacing: 0.04em; transition: all 0.3s ease; border: 1px solid rgba(13,13,13,0.08); box-shadow: 0 2px 8px rgba(13,13,13,0.04); }
+    .cta-btn:hover { background: var(--accent); color: var(--white); border-color: var(--accent); transform: translateY(-3px); box-shadow: 0 14px 36px rgba(109,128,166,0.22); }
+    .cta-btn span { color: var(--accent); transition: color 0.3s ease; }
+    .cta-btn:hover span { color: var(--white); }
+
+    .article-footer { margin-top: 80px; padding: 40px 36px; background: linear-gradient(135deg, var(--panel-light) 0%, rgba(191,191,191,0.3) 100%); border-radius: 16px; border: 1px solid rgba(13,13,13,0.05); position: relative; overflow: hidden; }
+    .article-footer::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--accent) 0%, transparent 100%); }
+    .author-bio { font-size: 0.95rem; color: var(--muted); line-height: 1.7; max-width: 760px; }
+    .author-bio a { color: var(--accent); font-weight: 500; }
+
+    .progress-bar { position: fixed; top: 0; left: 0; height: 2px; background: linear-gradient(90deg, var(--accent) 0%, var(--accent-light) 100%); z-index: 100; width: 0%; transition: width 0.1s linear; box-shadow: 0 0 8px rgba(109,128,166,0.4); }
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 640px) {
+      .hero { padding: 130px 20px 40px; }
+      .hero-title { font-size: 2.25rem; line-height: 0.92; }
+      .hero-subtitle { font-size: 1.05rem; padding-left: 14px; }
+      .hero-accent-line { left: 20px; }
+      .tool-shelf { padding: 0 20px 36px; }
+      .shelf-card { padding: 24px 20px 20px; }
+      .shelf-row { gap: 8px; }
+      .app-icon { min-width: 90px; padding: 16px 8px 10px; }
+      .app-icon-img { width: 52px; height: 52px; border-radius: 10px; }
+      .article-wrap { padding: 0 20px 60px; }
+      .nav-inner { grid-template-columns: 1fr; justify-items: center; gap: 10px; padding: 12px 20px; }
+      .nav-logo { justify-self: center; }
+      .nav-system { display: none; }
+      .nav-links { justify-self: center; gap: 18px; flex-wrap: wrap; }
+      .content > p:first-of-type::first-letter { font-size: 2.4rem; }
+    }
+    @media (min-width: 641px) and (max-width: 900px) {
+      .hero-title { font-size: 3.35rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="progress-bar" id="progress"></div>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">KIKA/</a>
+      <div class="nav-system">FOR PEOPLE WHO THINK IN SYSTEMS</div>
+      <div class="nav-links">
+        <a href="/apps">APPS</a>
+        <a href="/about">ABOUT</a>
+        <a href="/blog">BLOG</a>
+        <a href="https://github.com/dot-RealityTest" target="_blank" rel="noopener noreferrer" class="nav-external">
+          GITHUB
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-accent-line"></div>
+    <div class="hero-meta">
+      <span class="hero-tag">Systems Architecture</span>
+      <span class="hero-date">May 2026 · Kika (Nica Loren)</span>
+    </div>
+    <h1 class="hero-title"><span>How I Orchestrate My Entire Workflow</span></h1>
+    <p class="hero-subtitle">
+      From <strong>Pieces Memory</strong> to <strong>Codex Agents</strong> to <strong>ChatGPT</strong>. I don't code alone anymore — I have a <strong>fleet</strong>.
+    </p>
+  </header>
+
+  <!-- ════════ TOOL SHELF — YOUR CUSTOM ICONS ════════ -->
+  <section class="tool-shelf reveal">
+    <div class="shelf-card">
+      <div class="shelf-label">The Agent Fleet</div>
+      <div class="shelf-row">
+
+        <!-- Pieces OS -->
+        <div class="app-icon">
+          <img src="icons/memory_app_icon.png" alt="Pieces OS" class="app-icon-img">
+          <div class="app-icon-name">Pieces OS</div>
+          <div class="app-icon-role">Long-term memory graph</div>
+        </div>
+
+        <!-- Lapapi — your mustache icon -->
+        <div class="app-icon">
+          <img src="icons/mustache_icon.png" alt="Lapapi" class="app-icon-img">
+          <div class="app-icon-name">Lapapi</div>
+          <div class="app-icon-role">Mission control hub</div>
+        </div>
+
+        <!-- Codex -->
+        <div class="app-icon">
+          <img src="icons/codex_icon.png" alt="Codex" class="app-icon-img">
+          <div class="app-icon-name">Codex</div>
+          <div class="app-icon-role">Builder agent</div>
+        </div>
+
+        <!-- ChatGPT -->
+        <div class="app-icon">
+          <img src="icons/chatgpt_icon.png" alt="ChatGPT" class="app-icon-img">
+          <div class="app-icon-name">ChatGPT</div>
+          <div class="app-icon-role">Strategic layer</div>
+        </div>
+
+        <!-- Ollama -->
+        <div class="app-icon">
+          <img src="icons/ollama_icon.png" alt="Ollama" class="app-icon-img">
+          <div class="app-icon-name">Ollama</div>
+          <div class="app-icon-role">Local inference</div>
+        </div>
+
+      </div>
+      <div class="shelf-arrow">
+        Memory
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        Routing
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        Building
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        Strategy
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        Local
+      </div>
+    </div>
+  </section>
+
+  <article class="article-wrap">
+    <div class="content">
+      <p>Here's how it actually works — the full stack, the daily flow, and the philosophy that makes it all hold together.</p>
+
+      <div class="section-marker reveal"><div class="section-marker-line"></div><span class="section-marker-num">Foundation</span><div class="section-marker-line"></div></div>
+      <h2 class="reveal">Pieces OS Is My Brain</h2>
+      <p class="reveal">Everything starts with <strong>Pieces OS</strong>. It's not just a snippet manager. It's my long-term memory graph. Every clipboard event, every screenshot OCR, every browser tab, every Codex session, every ChatGPT conversation — Pieces captures it, indexes it, and makes it searchable.</p>
+      <p class="reveal">When I open a project I haven't touched in 3 weeks, I don't have to remember where I left off. I ask my system to pull a morning brief, and it synthesizes what I accomplished, open errors, active projects, and 2–3 next actions.</p>
+
+      <div class="section-marker reveal"><div class="section-marker-line"></div><span class="section-marker-num">Routing</span><div class="section-marker-line"></div></div>
+      <h2 class="reveal">Lapapi — Personal Mission Control</h2>
+      <p class="reveal"><strong>Lapapi</strong> is the hub. A macOS-first dashboard with that unmistakable <strong>mustache</strong> — my signature icon for the app that connects Pieces, Ollama, Codex, and whatever model I need.</p>
+      <p class="reveal">Every morning, Lapapi runs a health check: connector status, dirty git states, Downloads clutter, system memory pressure. If something's wrong, it tells me. If everything's green, it gets out of the way.</p>
+
+      <div class="section-marker reveal"><div class="section-marker-line"></div><span class="section-marker-num">Build</span><div class="section-marker-line"></div></div>
+      <h2 class="reveal">Codex: The Builder Agent</h2>
+      <p class="reveal"><strong>Codex</strong> is where the real work happens. I recently removed Claude from my local-first stack entirely. Now: Pieces, Ollama, Apple local AI, and Codex project context only. Build passed. App relaunched. No regrets.</p>
+
+      <div class="section-marker reveal"><div class="section-marker-line"></div><span class="section-marker-num">Fleet</span><div class="section-marker-line"></div></div>
+      <h2 class="reveal">Specialization Over Generalization</h2>
+      <p class="reveal">I don't use one AI for everything. I use <strong>agents</strong> — specialized personas:</p>
+      <table class="reveal">
+        <thead><tr><th>Agent</th><th>Role</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Hermes</strong></td><td>Gateway / Telegram & Discord dispatch, cron jobs, infrastructure</td></tr>
+          <tr><td><strong>Kartie</strong></td><td>Code review, architecture decisions, system diagnostics</td></tr>
+          <tr><td><strong>Neve-02</strong></td><td>Creative tasks, brand assets, Jez V marketing</td></tr>
+          <tr><td><strong>Codex</strong></td><td>Code generation, project scaffolding, deployment</td></tr>
+          <tr><td><strong>Goose</strong></td><td>Local inference, Ollama model management, extensions</td></tr>
+        </tbody>
+      </table>
+
+      <div class="section-marker reveal"><div class="section-marker-line"></div><span class="section-marker-num">Strategy</span><div class="section-marker-line"></div></div>
+      <h2 class="reveal">ChatGPT: The Strategic Layer</h2>
+      <p class="reveal">ChatGPT is where I <strong>think</strong>. Codex is where I <strong>build</strong>. Pieces remembers <strong>everything</strong>.</p>
+
+      <div class="section-marker reveal"><div class="section-marker-line"></div><span class="section-marker-num">Daily Flow</span><div class="section-marker-line"></div></div>
+      <h2 class="reveal">An Actual Day</h2>
+      <ol class="reveal">
+        <li><strong>Morning brief</strong> (Lapapi + Pieces) → full context recovery</li>
+        <li><strong>Deep work</strong> (Codex) → reads AGENTS.md, implements next feature — zero prompting</li>
+        <li><strong>Creative sprint</strong> (ChatGPT + GPT Image 2) → brand assets, copy, positioning</li>
+        <li><strong>Evening wrap</strong> (Pieces memory capture) → the entire day's context is saved for tomorrow</li>
+      </ol>
+
+      <div class="section-marker reveal"><div class="section-marker-line"></div><span class="section-marker-num">Philosophy</span><div class="section-marker-line"></div></div>
+      <h2 class="reveal">Workflow Over Model</h2>
+      <blockquote class="reveal"><p><strong>The model matters less than the workflow.</strong></p></blockquote>
+      <p class="reveal">A mediocre model with perfect context routing beats a frontier model with zero memory. The model will change next month. Your workflow is what compounds.</p>
+      <p class="reveal">If you're building with AI agents: invest in memory and routing before you invest in better models.</p>
+
+      <div class="cta-box reveal">
+        <h3>Steer Your Codex Agents</h3>
+        <p>Autopilot for Codex is my local-first control layer for managing, monitoring, and steering Codex CLI sessions on macOS.</p>
+        <a href="https://dot-realitytest.github.io/autopilot-for-codex/" class="cta-btn" target="_blank" rel="noopener">Open Autopilot <span>&rarr;</span></a>
+      </div>
+    </div>
+
+    <footer class="article-footer reveal">
+      <p class="author-bio">
+        <strong style="color:var(--dark)">Kika</strong> is a Technical Systems Architect and Sovereign Technologist based in Tel Aviv. She builds macOS-native tools, curates AI skill collections at <a href="https://v8v.ai">v8v.ai</a>, and believes the best AI stack is the one you own.
+      </p>
+    </footer>
+  </article>
+
+  <script>
+    const progress = document.getElementById('progress');
+    window.addEventListener('scroll', () => {
+      const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+      const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const pct = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+      progress.style.width = pct + '%';
+    });
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
