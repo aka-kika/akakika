@@ -9,3 +9,11 @@ coverage/
 .vercel/
 .playwright-mcp/
 /*.png
+
+# Local screenshot/reference captures. Keep the README tracked; keep bulky captures local.
+/screenshots/**/*.png
+/screenshots/**/*.jpg
+/screenshots/**/*.jpeg
+/screenshots/**/*.webp
+/screenshots/**/*.gif
+/public/blog/screenshots/

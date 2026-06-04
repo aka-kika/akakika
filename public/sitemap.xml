@@ -33,6 +33,30 @@
   </url>
   <!-- Blog Posts -->
   <url>
+    <loc>https://akakika.com/blog/rituals</loc>
+    <lastmod>2026-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://akakika.com/blog/seedling</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://akakika.com/blog/what-im-building-june-2026</loc>
+    <lastmod>2026-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://akakika.com/blog/missingpieces</loc>
+    <lastmod>2026-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://akakika.com/blog/683-repos-nobody-knows-about</loc>
     <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>

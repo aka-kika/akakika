@@ -373,7 +373,7 @@ const APPS = [
     badges: ["macOS", "PIECES"],
     version: "1.0.0-b3",
     size: "APP",
-    url: "https://dot-realitytest.github.io/missingpieces/",
+    url: "https://aka-kika.github.io/missingpieces/",
     image: "/icons/missingpieces-icon.png",
     accent: "#75bcbc",
     surface: "#f7f8fb",
@@ -388,7 +388,7 @@ const APPS = [
     badges: ["macOS", "CODEX"],
     version: "LIVE",
     size: "APP",
-    url: "https://dot-realitytest.github.io/autopilot-for-codex/",
+    url: "https://aka-kika.github.io/autopilot-for-codex/",
     image: "/autopilot-codex-icon.jpg",
     accent: "#22c55e",
     surface: "#0a1a0d",
@@ -402,7 +402,7 @@ const APPS = [
     badges: ["macOS", "READER"],
     version: "LIVE",
     size: "APP",
-    url: "https://dot-realitytest.github.io/HTMELLY/",
+    url: "https://aka-kika.github.io/HTMELLY/",
     image: "/htmelly-icon.jpg",
     accent: "#8c8c8c",
     surface: "#1a1a1a",
@@ -648,6 +648,12 @@ const BLOG_TOOL_STACK: Record<string, BlogToolIcon[]> = {
     { src: "/blog/icons/settings_app_icon.png", name: "UserDefaults", role: "storage" },
     { src: "/blog/icons/code_app_icon.png", name: "Codex", role: "dev AI" },
   ],
+  "seedling": [
+    { src: "/blog/icons/apple_icon.png", name: "macOS", role: "platform" },
+    { src: "/blog/icons/swiftui_icon.png", name: "SwiftUI", role: "frontend" },
+    { src: "/blog/icons/folder_app_icon.png", name: "Local Folders", role: "storage" },
+    { src: "/blog/icons/code_app_icon.png", name: "Codex", role: "dev AI" },
+  ],
   "what-im-building-june-2026": [
     { src: "/blog/icons/terminal_app_icon.png", name: "Jade", role: "project terminal" },
     { src: "/blog/icons/code_app_icon.png", name: "Reshelf", role: "catalog manager" },
@@ -888,6 +894,49 @@ Rituals ships with polished default checklists for common work transitions. Each
 ## What I Learned
 
 A checklist app can become noisy very quickly. The useful version was not the one with the most structure. It was the one that stayed small enough to trust.
+`,
+  },
+  {
+    id: "seedling",
+    date: "June 2026",
+    title: "SEEDLING",
+    category: "APPS",
+    status: "PUBLISHED",
+    excerpt: "A small macOS menu bar app for creating new project folders from reusable Markdown seed files like README, AGENTS, TODO, and SECURITY.",
+    readTime: "4 MIN READ",
+    content: `# Seedling
+
+*June 2026 · Kika (Nica Loren)*
+
+Seedling is a small macOS menu bar app that plants your standard markdown files into a new project folder. For late nights when you just want to begin without friction.
+
+## At A Glance
+
+Seedling is a local-first macOS project scaffolding tool. It creates fresh project folders filled from reusable Markdown seed files such as README, AGENTS, TODO, and SECURITY.
+
+## The Friction
+
+Every new project starts the same way. You make a folder, copy in the files that set the rules, and rename things so the project knows what it is. README, AGENTS.md, CLAUDE.md, TODO, SECURITY. The boring scaffolding exists before any real work begins.
+
+## The Idea
+
+Keep your seed files in one folder you own. Call it the Root. When you start a project, Seedling copies the current version of them into a new folder. The Root is the source of truth. The new folder is a clean beginning.
+
+## What It Does
+
+You set two folders once: the Root for your seed files, the Garden for where projects live. After that, summon the window, type a name, and press return. Seedling creates the folder, copies the seeds in, and opens it.
+
+1. Summon the menu bar window.
+2. Name the project.
+3. Plant the files and start.
+
+## What I Learned
+
+The best part is not what it does. It is what it refuses to do. No templates to browse. No configuration to get lost in. No dashboard. Name the thing. Plant it. Go.
+
+## FAQ
+
+Seedling works with local folders on macOS and does not require a backend. Its source of truth is the GitHub repository at https://github.com/aka-kika/Seedling.
 `,
   },
   {
@@ -1997,6 +2046,7 @@ const itemVariants = {
 
 const STANDALONE_BLOG_IDS = new Set([
   "rituals",
+  "seedling",
   "what-im-building-june-2026",
   "missingpieces",
   "why-i-pay-for-cursor",
@@ -2263,7 +2313,7 @@ export default function App() {
           />
           <NavLink
             label="GITHUB"
-            href="https://github.com/dot-RealityTest"
+            href="https://github.com/aka-kika"
             isExternal
           />
 
@@ -2679,7 +2729,7 @@ export default function App() {
                     More tools in development
                   </p>
                   <a 
-                    href="https://github.com/dot-RealityTest" 
+                    href="https://github.com/aka-kika" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="text-[11px] font-black uppercase tracking-widest flex items-center gap-2 hover:text-accent transition-colors"
@@ -2776,7 +2826,7 @@ export default function App() {
                         </button>
                       )}
                       <a
-                        href="https://github.com/dot-RealityTest"
+                        href="https://github.com/aka-kika"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="h-14 px-7 border border-black/15 bg-white/35 flex items-center justify-center gap-3 font-black tracking-widest uppercase hover:bg-white/60 transition-colors"
@@ -2967,7 +3017,7 @@ export default function App() {
                         <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted/75">BUILT WITH AI AND TOO MUCH CURIOSITY.</p>
                       </div>
                       <a
-                        href="https://github.com/dot-RealityTest"
+                        href="https://github.com/aka-kika"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex h-11 items-center justify-center gap-2 border border-black/10 bg-white/25 px-5 font-mono text-[10px] font-black uppercase tracking-[0.18em] text-black transition-all hover:-translate-y-0.5 hover:border-accent/35 hover:bg-white/45"
@@ -3041,7 +3091,7 @@ export default function App() {
             </div>
           </div>
           <a
-            href="https://github.com/dot-RealityTest"
+            href="https://github.com/aka-kika"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex h-11 items-center justify-center gap-2 border border-black/10 bg-white/25 px-5 font-mono text-[10px] font-black uppercase tracking-[0.18em] text-black transition-all hover:-translate-y-0.5 hover:border-accent/35 hover:bg-white/45"

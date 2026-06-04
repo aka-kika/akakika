@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seedling: macOS project scaffolding menu bar app — KIKA</title>
+  <meta name="description" content="Seedling is a small macOS menu bar app for creating new project folders from reusable Markdown seed files like README, AGENTS, TODO, and SECURITY.">
+  <meta name="author" content="KIKA">
+  <meta name="keywords" content="Seedling, macOS menu bar app, project scaffolding, Markdown templates, SwiftUI app, local-first developer tool, project starter files, KIKA">
+  <meta name="theme-color" content="#d9d9d9">
+  <link rel="canonical" href="https://akakika.com/blog/seedling">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="AKAKIKA">
+  <meta property="og:title" content="Seedling: macOS project scaffolding menu bar app — KIKA">
+  <meta property="og:description" content="Seedling plants reusable Markdown starter files into a new local project folder, so a fresh README, AGENTS, TODO, and SECURITY setup is one small menu bar action.">
+  <meta property="og:url" content="https://akakika.com/blog/seedling">
+  <meta property="og:image" content="https://akakika.com/og-image.png">
+  <meta property="article:published_time" content="2026-06-04">
+  <meta property="article:modified_time" content="2026-06-04">
+  <meta property="article:author" content="Kika (Nica Loren)">
+  <meta property="article:section" content="Apps">
+  <meta property="article:tag" content="macOS">
+  <meta property="article:tag" content="SwiftUI">
+  <meta property="article:tag" content="project scaffolding">
+  <meta property="article:tag" content="Markdown templates">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@kika_hub">
+  <meta name="twitter:title" content="Seedling: macOS project scaffolding menu bar app — KIKA">
+  <meta name="twitter:description" content="A small macOS menu bar app for creating project folders from reusable Markdown seed files.">
+  <link rel="icon" type="image/svg+xml" href="https://akakika.com/favicon.svg">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "BlogPosting",
+          "@id": "https://akakika.com/blog/seedling#article",
+          "headline": "Seedling: macOS project scaffolding menu bar app",
+          "alternativeHeadline": "Seedling",
+          "description": "Seedling is a small macOS menu bar app for creating new project folders from reusable Markdown seed files like README, AGENTS, TODO, and SECURITY.",
+          "author": {
+            "@type": "Person",
+            "name": "Kika (Nica Loren)",
+            "url": "https://akakika.com/about"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "AKAKIKA",
+            "url": "https://akakika.com"
+          },
+          "datePublished": "2026-06-04",
+          "dateModified": "2026-06-04",
+          "image": "https://akakika.com/og-image.png",
+          "mainEntityOfPage": "https://akakika.com/blog/seedling",
+          "url": "https://akakika.com/blog/seedling",
+          "isPartOf": {
+            "@type": "Blog",
+            "name": "KIKA Journal",
+            "url": "https://akakika.com/blog"
+          },
+          "about": {
+            "@id": "https://akakika.com/blog/seedling#software"
+          },
+          "keywords": [
+            "Seedling",
+            "macOS menu bar app",
+            "project scaffolding",
+            "Markdown templates",
+            "SwiftUI",
+            "local-first developer tool"
+          ],
+          "mentions": [
+            "macOS",
+            "SwiftUI",
+            "README",
+            "AGENTS.md",
+            "TODO",
+            "SECURITY"
+          ],
+          "sameAs": [
+            "https://github.com/aka-kika/Seedling"
+          ]
+        },
+        {
+          "@type": "SoftwareApplication",
+          "@id": "https://akakika.com/blog/seedling#software",
+          "name": "Seedling",
+          "applicationCategory": "DeveloperApplication",
+          "operatingSystem": "macOS",
+          "description": "A local-first macOS menu bar app that creates project folders from reusable Markdown seed files.",
+          "creator": {
+            "@type": "Person",
+            "name": "Kika (Nica Loren)",
+            "url": "https://akakika.com/about"
+          },
+          "codeRepository": "https://github.com/aka-kika/Seedling",
+          "downloadUrl": "https://github.com/aka-kika/Seedling/releases/latest/download/Seedling-3.0.dmg",
+          "url": "https://akakika.com/blog/seedling",
+          "sameAs": "https://github.com/aka-kika/Seedling"
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://akakika.com/blog/seedling#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What is Seedling?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Seedling is a small macOS menu bar app that creates a new local project folder by copying reusable Markdown seed files into it."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Who is Seedling for?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Seedling is for people who start many projects and want their README, AGENTS, TODO, SECURITY, or other starter files ready before they begin working."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does Seedling need a backend?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. Seedling works with local folders on macOS and does not require a backend."
+              }
+            }
+          ]
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://akakika.com/blog/seedling#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "AKAKIKA",
+              "item": "https://akakika.com"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "KIKA Journal",
+              "item": "https://akakika.com/blog"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Seedling",
+              "item": "https://akakika.com/blog/seedling"
+            }
+          ]
+        }
+      ]
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Fira+Sans:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #d9d9d9;
+      --bg-deep: #c8c8c8;
+      --panel: #bfbfbf;
+      --panel-light: #e0e0e0;
+      --muted: #8c8c8c;
+      --dark: #404040;
+      --dark-deep: #2a2a2a;
+      --accent: #6d80a6;
+      --accent-light: #8a9abb;
+      --accent-muted: rgba(109, 128, 166, 0.12);
+      --black: #0d0d0d;
+      --white: #fff;
+      --page-max: 1080px;
+      --article-max: 920px;
+      --font-sans: "Fira Sans", ui-sans-serif, system-ui, sans-serif;
+      --font-title: "Fira Sans", ui-sans-serif, system-ui, sans-serif;
+      --font-mono: "Fira Code", ui-monospace, SFMono-Regular, monospace;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body { background: var(--bg); color: var(--dark); font-family: var(--font-sans); line-height: 1.65; font-size: 17px; overflow-x: hidden; }
+    a { color: inherit; text-decoration: none; }
+
+    .progress-bar { position: fixed; top: 0; left: 0; z-index: 100; width: 0%; height: 2px; background: linear-gradient(90deg, var(--accent), var(--accent-light)); box-shadow: 0 0 8px rgba(109, 128, 166, 0.4); transition: width 0.1s linear; }
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 50; background: rgba(217, 217, 217, 0.7); border-bottom: 1px solid rgba(13, 13, 13, 0.04); backdrop-filter: blur(24px) saturate(1.3); -webkit-backdrop-filter: blur(24px) saturate(1.3); }
+    .nav-inner { min-height: 62px; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 24px; padding: 14px 24px; }
+    .nav-logo { justify-self: start; color: var(--black); font-size: 20px; font-weight: 900; letter-spacing: -0.04em; line-height: 1; text-transform: uppercase; }
+    .nav-system { justify-self: center; color: var(--muted); font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; white-space: nowrap; }
+    .nav-links { justify-self: end; display: flex; align-items: center; gap: 24px; color: var(--black); font-size: 11px; font-weight: 900; letter-spacing: -0.01em; line-height: 1; text-transform: uppercase; }
+    .nav-links a { position: relative; isolation: isolate; display: inline-flex; align-items: center; gap: 6px; padding: 4px; border-radius: 6px; transition: color 0.2s ease, transform 0.2s ease; }
+    .nav-links a::before { content: ''; position: absolute; inset: 0; z-index: -1; border-radius: 6px; background: rgba(109, 128, 166, 0.06); opacity: 0; transform: scale(0.95); transition: opacity 0.2s ease, transform 0.2s ease; }
+    .nav-links a::after { content: ''; position: absolute; left: 4px; right: 4px; bottom: -3px; height: 1px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 0.32s cubic-bezier(0.2, 0.8, 0.2, 1); }
+    .nav-links a:hover { transform: translateY(-1px); color: var(--accent); }
+    .nav-links a:hover::before { opacity: 1; transform: scale(1.05); }
+    .nav-links a:hover::after { transform: scaleX(1); }
+    .nav-external { display: inline-flex; align-items: center; gap: 6px; }
+    .nav-external svg { width: 10px; height: 10px; opacity: 0.55; transition: opacity 0.2s ease, transform 0.2s ease; }
+    .nav-external:hover svg { opacity: 1; transform: translate(1px, -1px); }
+
+    .hero { position: relative; max-width: var(--page-max); margin: 0 auto; padding: 160px 36px 68px; }
+    .hero-accent-line { position: absolute; top: 110px; left: 36px; width: 60px; height: 3px; background: var(--accent); }
+    .hero-accent-line::after { content: ''; position: absolute; top: 0; left: 70px; width: 12px; height: 3px; background: var(--accent); opacity: 0.4; }
+    .hero-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 28px; }
+    .hero-tag { padding: 5px 12px; border: 1px solid rgba(109, 128, 166, 0.2); border-radius: 4px; background: var(--accent-muted); color: var(--accent); font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; }
+    .hero-date { color: var(--muted); font-size: 13px; letter-spacing: 0.03em; }
+    .hero-title { max-width: 980px; margin-bottom: 28px; color: var(--black); font-family: var(--font-title); font-size: 4.35rem; font-weight: 900; letter-spacing: -0.055em; line-height: 0.88; text-transform: uppercase; }
+    .hero-title span { display: block; background: linear-gradient(135deg, var(--black) 0%, var(--dark-deep) 60%, var(--accent) 100%); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .hero-subtitle { max-width: 760px; padding-left: 18px; border-left: 2px solid var(--accent); color: var(--dark); font-size: 1.2rem; line-height: 1.62; }
+    .hero-subtitle strong { color: var(--black); font-weight: 700; }
+    .hero-share { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 24px; margin-top: 46px; padding-top: 28px; border-top: 1px solid rgba(13, 13, 13, 0.08); }
+    .post-facts { display: flex; align-items: center; flex-wrap: wrap; gap: 26px; color: var(--muted); font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; }
+    .post-fact { display: inline-flex; align-items: center; gap: 9px; }
+    .post-fact svg { width: 16px; height: 16px; color: var(--accent); stroke-width: 1.8; }
+    .share-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; }
+    .share-btn { min-height: 42px; display: inline-flex; align-items: center; justify-content: center; gap: 9px; padding: 0 16px; border: 1px solid rgba(13, 13, 13, 0.10); border-radius: 10px; font-family: var(--font-sans); font-size: 11px; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease; }
+    .share-btn svg { width: 16px; height: 16px; }
+    .share-btn-dark { border-color: var(--black); background: var(--black); color: var(--white); }
+    .share-btn-light { background: rgba(255, 255, 255, 0.26); color: var(--black); }
+    .share-btn:hover { transform: translateY(-2px); border-color: rgba(109, 128, 166, 0.35); box-shadow: 0 10px 24px rgba(13, 13, 13, 0.08); }
+
+    .tool-shelf { max-width: var(--page-max); margin: 0 auto; padding: 0 36px 52px; }
+    .shelf-card { position: relative; overflow: hidden; padding: 36px 32px 28px; border: 1px solid rgba(13, 13, 13, 0.05); border-radius: 20px; background: linear-gradient(145deg, var(--panel-light), var(--bg)); }
+    .shelf-card::before { content: ''; position: absolute; top: -40%; right: -15%; width: 300px; height: 300px; border-radius: 50%; background: radial-gradient(circle, rgba(109, 128, 166, 0.12), transparent 70%); pointer-events: none; }
+    .shelf-label { position: relative; z-index: 1; margin-bottom: 24px; color: var(--accent); font-size: 10px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; }
+    .shelf-row { position: relative; z-index: 1; display: flex; align-items: stretch; flex-wrap: wrap; gap: 14px; }
+    .app-icon { flex: 1; min-width: 110px; padding: 22px 14px 14px; border: 1px solid rgba(13, 13, 13, 0.06); border-radius: 18px; background: rgba(255, 255, 255, 0.55); text-align: center; backdrop-filter: blur(12px); transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); }
+    .app-icon:hover { transform: translateY(-8px) scale(1.03); border-color: rgba(109, 128, 166, 0.25); background: rgba(255, 255, 255, 0.8); box-shadow: 0 20px 50px rgba(109, 128, 166, 0.15); }
+    .app-icon-img { display: block; width: 64px; height: 64px; margin: 0 auto 12px; border-radius: 14px; object-fit: cover; }
+    .app-icon-name { margin-bottom: 3px; color: var(--black); font-size: 13px; font-weight: 700; letter-spacing: 0.01em; }
+    .app-icon-role { color: var(--muted); font-size: 10px; letter-spacing: 0.02em; line-height: 1.35; }
+    .shelf-arrow { position: relative; z-index: 1; display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 26px; color: var(--muted); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; }
+
+    .article-wrap { max-width: var(--article-max); margin: 0 auto; padding: 0 36px 108px; }
+    .section-marker { display: flex; align-items: center; gap: 12px; margin: 60px 0 24px; }
+    .section-marker-line { flex: 1; height: 1px; background: linear-gradient(90deg, transparent, rgba(109, 128, 166, 0.3), transparent); }
+    .section-marker-num { padding: 4px 10px; border: 1px solid rgba(109, 128, 166, 0.25); border-radius: 20px; color: var(--accent); font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; }
+    .content h2 { position: relative; margin-bottom: 20px; padding-left: 16px; color: var(--black); font-family: var(--font-mono); font-size: 1.55rem; font-weight: 700; letter-spacing: 0.01em; line-height: 1.08; text-transform: uppercase; }
+    .content h2::before { content: ''; position: absolute; top: 4px; bottom: 4px; left: 0; width: 3px; border-radius: 2px; background: var(--accent); }
+    .content h3 { margin-top: 36px; margin-bottom: 14px; color: var(--dark-deep); font-size: 1.15rem; font-weight: 900; letter-spacing: 0.01em; line-height: 1.18; text-transform: uppercase; }
+    .content p { margin-bottom: 20px; color: var(--dark); font-weight: 400; line-height: 1.7; }
+    .content p strong { color: var(--black); font-weight: 700; }
+    .content > p:first-of-type::first-letter { float: left; padding-top: 4px; padding-right: 10px; color: var(--accent); font-size: 3.2rem; font-weight: 900; line-height: 0.8; }
+    .content blockquote { position: relative; margin: 36px 0; padding: 28px 32px; border-left: 3px solid var(--accent); border-radius: 12px; background: linear-gradient(135deg, rgba(109, 128, 166, 0.06), rgba(191, 191, 191, 0.3)); }
+    .content blockquote::before { content: '"'; position: absolute; top: 6px; left: 14px; color: var(--accent); font-family: Georgia, serif; font-size: 3.5rem; font-weight: 900; line-height: 1; opacity: 0.2; }
+    .content blockquote p { position: relative; z-index: 1; margin-bottom: 0; color: var(--dark-deep); font-size: 1.15rem; font-weight: 500; line-height: 1.55; }
+    .content ul, .content ol { margin-bottom: 24px; padding-left: 0; list-style: none; }
+    .content li { position: relative; margin-bottom: 12px; padding-left: 24px; color: var(--dark); line-height: 1.6; }
+    .content li::before { content: ''; position: absolute; top: 10px; left: 0; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); opacity: 0.5; }
+    .content ol { counter-reset: step; }
+    .content ol li { counter-increment: step; padding-left: 52px; margin-bottom: 24px; }
+    .content ol li::before { content: counter(step); top: 0; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(109, 128, 166, 0.2); background: var(--accent-muted); color: var(--accent); font-size: 12px; font-weight: 700; }
+    .content code { padding: 3px 8px; border: 1px solid rgba(13, 13, 13, 0.06); border-radius: 5px; background: rgba(13, 13, 13, 0.04); color: var(--dark-deep); font-family: var(--font-mono); font-size: 0.85em; }
+    .content table { width: 100%; margin: 32px 0; border-collapse: separate; border-spacing: 0; overflow: hidden; border-radius: 12px; box-shadow: 0 2px 12px rgba(13, 13, 13, 0.04); font-size: 0.95rem; }
+    .content thead { background: linear-gradient(135deg, var(--panel), var(--bg-deep)); }
+    .content th { padding: 14px 16px; border-bottom: 2px solid rgba(109, 128, 166, 0.2); color: var(--black); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.06em; text-align: left; text-transform: uppercase; }
+    .content td { padding: 14px 16px; border-bottom: 1px solid rgba(13, 13, 13, 0.04); background: rgba(255, 255, 255, 0.4); color: var(--dark); vertical-align: top; }
+    .content tr:last-child td { border-bottom: none; }
+    .content .demo-gif { display: block; max-width: 100%; border-radius: 16px; box-shadow: 0 8px 32px rgba(13, 13, 13, 0.08); margin: 36px auto; }
+
+    .cta-box { position: relative; margin: 48px 0; padding: 36px 32px 32px; border: 1px solid rgba(13, 13, 13, 0.06); border-radius: 20px; background: linear-gradient(135deg, var(--panel-light), rgba(191, 191, 191, 0.3)); box-shadow: 0 8px 32px rgba(13, 13, 13, 0.04); text-align: center; }
+    .cta-box h3 { margin-bottom: 12px; color: var(--black); font-size: 1.35rem; font-weight: 900; letter-spacing: -0.02em; text-transform: uppercase; }
+    .cta-box p { margin-bottom: 24px; color: var(--muted); font-size: 0.95rem; }
+    .cta-btn { display: inline-block; padding: 18px 40px; border: 1px solid rgba(13, 13, 13, 0.08); border-radius: 12px; background: var(--panel); color: var(--dark); box-shadow: 0 2px 8px rgba(13, 13, 13, 0.04); font-size: 1.05rem; font-weight: 700; letter-spacing: 0.04em; transition: all 0.3s ease; }
+    .cta-btn:hover { transform: translateY(-3px); border-color: var(--accent); background: var(--accent); color: var(--white); box-shadow: 0 14px 36px rgba(109, 128, 166, 0.22); }
+    .project-links { margin: -16px 0 52px; padding: 24px; border: 1px solid rgba(13, 13, 13, 0.07); border-radius: 18px; background: rgba(255, 255, 255, 0.28); box-shadow: 0 10px 34px rgba(13, 13, 13, 0.035); }
+    .project-links-kicker { margin-bottom: 14px; color: var(--accent); font-family: var(--font-mono); font-size: 10px; font-weight: 900; letter-spacing: 0.2em; text-transform: uppercase; }
+    .project-link-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+    .project-link { min-height: 78px; display: flex; align-items: center; gap: 14px; padding: 14px; border: 1px solid rgba(13, 13, 13, 0.07); border-radius: 14px; background: rgba(224, 224, 224, 0.62); color: var(--black); transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease; }
+    .project-link:hover { transform: translateY(-3px); border-color: rgba(109, 128, 166, 0.35); background: rgba(255, 255, 255, 0.55); box-shadow: 0 12px 28px rgba(13, 13, 13, 0.06); }
+    .project-link-img { flex: 0 0 44px; width: 44px; height: 44px; border-radius: 12px; }
+    .project-link-img { display: block; object-fit: cover; box-shadow: 0 8px 20px rgba(13, 13, 13, 0.08); }
+    .project-link strong { display: block; margin-bottom: 3px; color: var(--black); font-size: 0.9rem; font-weight: 900; line-height: 1.1; text-transform: uppercase; }
+    .project-link small { display: block; color: var(--muted); font-size: 0.75rem; line-height: 1.25; }
+    .article-footer { margin-top: 80px; padding: 40px 0 0; border-top: 1px solid rgba(13, 13, 13, 0.10); }
+    .site-footer-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 24px; }
+    .footer-info { display: grid; gap: 8px; color: var(--muted); font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; }
+    .footer-info span:last-child { color: rgba(140, 140, 140, 0.78); }
+    .footer-link { min-height: 42px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 0 16px; border: 1px solid rgba(13, 13, 13, 0.10); background: rgba(255, 255, 255, 0.25); color: var(--black); font-family: var(--font-mono); font-size: 10px; font-weight: 900; letter-spacing: 0.18em; text-transform: uppercase; transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease; }
+    .footer-link:hover { transform: translateY(-2px); border-color: rgba(109, 128, 166, 0.35); background: rgba(255, 255, 255, 0.45); }
+    .footer-link svg { width: 12px; height: 12px; color: var(--accent); }
+
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 640px) {
+      .hero { padding: 130px 20px 40px; }
+      .hero-accent-line { left: 20px; }
+      .hero-title { font-size: 2.25rem; line-height: 0.92; }
+      .hero-subtitle { padding-left: 14px; font-size: 1.05rem; }
+      .hero-share { align-items: flex-start; margin-top: 34px; padding-top: 22px; }
+      .post-facts { gap: 14px; font-size: 10px; letter-spacing: 0.13em; }
+      .share-actions { width: 100%; }
+      .share-btn { flex: 1; }
+      .tool-shelf { padding: 0 20px 36px; }
+      .shelf-card { padding: 24px 20px 20px; }
+      .shelf-row { gap: 8px; }
+      .app-icon { min-width: 90px; padding: 16px 8px 10px; }
+      .app-icon-img { width: 52px; height: 52px; border-radius: 10px; }
+      .project-links { padding: 18px; }
+      .project-link-grid { grid-template-columns: 1fr; }
+      .article-wrap { padding: 0 20px 60px; }
+      .nav-inner { grid-template-columns: 1fr; justify-items: center; gap: 10px; padding: 12px 20px; }
+      .nav-logo { justify-self: center; }
+      .nav-system { display: none; }
+      .nav-links { justify-self: center; flex-wrap: wrap; gap: 18px; }
+      .content > p:first-of-type::first-letter { font-size: 2.4rem; }
+    }
+
+    @media (min-width: 641px) and (max-width: 900px) {
+      .hero-title { font-size: 3.35rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="progress-bar" id="progress"></div>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">KIKA/</a>
+      <div class="nav-system">FOR PEOPLE WHO THINK IN SYSTEMS</div>
+      <div class="nav-links">
+        <a href="/about">ABOUT</a>
+        <a href="/blog">JOURNAL</a>
+        <a href="/apps">APPS</a>
+        <a href="https://github.com/aka-kika" target="_blank" rel="noopener noreferrer" class="nav-external">
+          GITHUB
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-accent-line"></div>
+    <div class="hero-meta">
+      <span class="hero-tag">App</span>
+      <span class="hero-date">June 2026 &middot; Kika (Nica Loren)</span>
+    </div>
+    <h1 class="hero-title"><span>Seedling</span></h1>
+    <p class="hero-subtitle">A small macOS menu bar app that plants your standard markdown files into a new project folder. For late nights when you just want to begin without friction.</p>
+    <div class="hero-share reveal">
+      <div class="post-facts">
+        <span class="post-fact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M8 2v4"/><path d="M16 2v4"/><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18"/></svg><span>June 4, 2026</span></span>
+        <span class="post-fact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>4 min read</span></span>
+        <span class="post-fact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M20.5 10.5 13 3H5v8l7.5 7.5a2.8 2.8 0 0 0 4 0l4-4a2.8 2.8 0 0 0 0-4Z"/><circle cx="8.5" cy="6.5" r="1"/></svg><span>Published</span></span>
+      </div>
+      <div class="share-actions">
+        <a href="#" class="share-btn share-btn-dark" data-share-x target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.9 2h3.3l-7.2 8.2L23.5 22h-6.7l-5.2-6.8L5.7 22H2.4l7.7-8.8L2 2h6.8l4.7 6.2L18.9 2Zm-1.2 17.9h1.8L7.8 4H5.9l11.8 15.9Z"/></svg><span>Post</span></a>
+        <button type="button" class="share-btn share-btn-light" data-copy-link><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 13.5 6.8 4"/><path d="m15.4 6.5-6.8 4"/></svg><span data-copy-label>Copy Link</span></button>
+      </div>
+    </div>
+  </header>
+
+  <section class="tool-shelf reveal">
+    <div class="shelf-card">
+      <div class="shelf-label">Stack</div>
+      <div class="shelf-row">
+        <div class="app-icon">
+          <img src="icons/apple_icon.png" alt="macOS" class="app-icon-img">
+          <div class="app-icon-name">macOS</div>
+          <div class="app-icon-role">Platform</div>
+        </div>
+        <div class="app-icon">
+          <img src="icons/swiftui_icon.png" alt="SwiftUI" class="app-icon-img">
+          <div class="app-icon-name">SwiftUI</div>
+          <div class="app-icon-role">Frontend</div>
+        </div>
+        <div class="app-icon">
+          <img src="icons/folder_app_icon.png" alt="Local Folders" class="app-icon-img">
+          <div class="app-icon-name">Local Folders</div>
+          <div class="app-icon-role">Storage</div>
+        </div>
+        <div class="app-icon">
+          <img src="icons/code_app_icon.png" alt="Codex" class="app-icon-img">
+          <div class="app-icon-name">Codex</div>
+          <div class="app-icon-role">Dev AI</div>
+        </div>
+      </div>
+      <div class="shelf-arrow">macOS · SwiftUI · local folders · no backend · one purpose</div>
+    </div>
+  </section>
+
+  <article class="article-wrap">
+    <div class="content">
+      <p>Every new project starts the same way. You make a folder, you copy in the files that set the rules, and you rename things so the project knows what it is. README, AGENTS.md, CLAUDE.md, TODO, SECURITY. The boring scaffolding that exists before any real work begins. I did this over and over, sometimes by hand, sometimes from memory, sometimes badly. The annoying part was that this is a thirty-second job I kept doing badly.</p>
+
+      <p>Seedling is a small macOS menu bar app that turns naming a project into a tiny ceremony. You summon a small centered window, type a name, and it plants your usual files into a fresh folder. That is the whole concept. The files are the seeds, the new folder is where they grow.</p>
+
+      <h3 class="reveal">Seedling At A Glance</h3>
+      <table class="reveal">
+        <tbody>
+          <tr>
+            <th>What it is</th>
+            <td>A local-first macOS menu bar app for project scaffolding.</td>
+          </tr>
+          <tr>
+            <th>What it creates</th>
+            <td>Fresh project folders filled from reusable Markdown seed files such as README, AGENTS, TODO, and SECURITY.</td>
+          </tr>
+          <tr>
+            <th>Best for</th>
+            <td>People who start many projects and want the same starter files ready without copying boilerplate by hand.</td>
+          </tr>
+          <tr>
+            <th>Source of truth</th>
+            <td><a href="https://github.com/aka-kika/Seedling" target="_blank" rel="noopener noreferrer">Seedling on GitHub</a></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="section-marker reveal"><div class="section-marker-line"></div><span class="section-marker-num">01</span><div class="section-marker-line"></div></div>
+      <h2 class="reveal">The Friction</h2>
+      <p class="reveal">The friction is not dramatic. It is just a small drag. You have an idea late at night, soft and unformed, and before you can work on the idea itself you have to do the scaffolding. Open a terminal. Copy boilerplate. Rename. Decide which files this project needs. It breaks the small bit of momentum that made you want to start in the first place.</p>
+      <ul class="reveal">
+        <li>Opening a terminal to copy the same files you copied last time</li>
+        <li>Forgetting a file and starting messy, then paying for it later</li>
+        <li>The gap between wanting to start and actually being ready to start</li>
+      </ul>
+
+      <div class="section-marker reveal"><div class="section-marker-line"></div><span class="section-marker-num">02</span><div class="section-marker-line"></div></div>
+      <h2 class="reveal">The Idea</h2>
+      <p class="reveal">The idea is simple. Keep your seed files in one folder you own. Call it the Root. When you start a project, Seedling copies the current version of them into a new folder. The Root is the source of truth. The new folder is a clean beginning. Nothing more.</p>
+      <blockquote class="reveal">
+        <p>A small ceremony changes how a plain file copy feels, more than it should.</p>
+      </blockquote>
+
+      <h3 class="reveal">What It Does</h3>
+      <p class="reveal">Seedling does one thing and tries to do it well. You set two folders once: the Root for your seed files, the Garden for where projects live. After that, summon the window, type a name, and press return. Seedling creates the folder, copies the seeds in, and opens it. If a file already exists it is left untouched. The growth animation is only feedback, but it is the part that makes it feel like a beginning instead of a copy command.</p>
+      <ol class="reveal">
+        <li><strong>Summon</strong> — hit the hotkey or click the menu bar icon. A small centered window appears.</li>
+        <li><strong>Name</strong> — type a project name. Seedling creates the folder and fills the project name into the files.</li>
+        <li><strong>Plant</strong> — press return. Your seed files land in the new folder. Done.</li>
+      </ol>
+
+      <img src="icons/seedling-demo.gif" alt="Seedling growing a new project — demo" class="demo-gif reveal" loading="lazy">
+
+      <div class="cta-box reveal">
+        <h3>Try Seedling</h3>
+        <p>A tiny macOS menu bar app that plants your standard markdown files into a new project folder. Small on purpose, signed, notarized, and out in the world.</p>
+        <a href="https://github.com/aka-kika/Seedling/releases/latest/download/Seedling-3.0.dmg" class="cta-btn">Download <span>&rarr;</span></a>
+      </div>
+
+      <aside class="project-links reveal" aria-label="More to explore">
+        <div class="project-links-kicker">More To Explore</div>
+        <div class="project-link-grid">
+          <a class="project-link project-link-related" href="/blog/rituals">
+            <img src="icons/bookmark_icon_clean.png" alt="" class="project-link-img" aria-hidden="true">
+            <span><strong>Read Rituals</strong><small>Another small macOS workflow tool</small></span>
+          </a>
+          <a class="project-link project-link-github" href="https://github.com/aka-kika/Seedling" target="_blank" rel="noopener noreferrer">
+            <img src="icons/github_icon.png" alt="" class="project-link-img" aria-hidden="true">
+            <span><strong>GitHub Repo</strong><small>Read the source</small></span>
+          </a>
+        </div>
+      </aside>
+
+      <div class="section-marker reveal"><div class="section-marker-line"></div><span class="section-marker-num">03</span><div class="section-marker-line"></div></div>
+      <h2 class="reveal">What I Learned</h2>
+      <p class="reveal">Building something this small teaches you things you do not expect. Recent macOS injects a debug entitlement into release builds that breaks notarization, so the app has to be re-signed before it ships. The Settings window had to be managed by hand, because the standard SwiftUI opener no longer works for menu bar apps on current macOS. And the growth animation, which is just line art and a short timer, changes how the whole interaction feels. A small ceremony turns a file copy into a beginning.</p>
+      <p class="reveal">The best part is not what it does. It is what it refuses to do. No templates to browse. No configuration to get lost in. No dashboard. One accent color, hairlines, and Liquid Glass. Name the thing. Plant it. Go.</p>
+
+      <div class="section-marker reveal"><div class="section-marker-line"></div><span class="section-marker-num">FAQ</span><div class="section-marker-line"></div></div>
+      <h2 class="reveal">Seedling FAQ</h2>
+      <h3 class="reveal">What is Seedling?</h3>
+      <p class="reveal">Seedling is a small macOS menu bar app that creates a new local project folder by copying reusable Markdown seed files into it.</p>
+      <h3 class="reveal">Who is Seedling for?</h3>
+      <p class="reveal">Seedling is for people who start many projects and want their README, AGENTS, TODO, SECURITY, or other starter files ready before they begin working.</p>
+      <h3 class="reveal">Does Seedling need a backend?</h3>
+      <p class="reveal">No. Seedling works with local folders on macOS and does not require a backend.</p>
+    </div>
+
+    <footer class="article-footer reveal">
+      <div class="site-footer-inner">
+        <div class="footer-info">
+          <span>&copy; KIKA 2026 / PERSONAL SOFTWARE LAB</span>
+          <span>BUILT WITH AI AND TOO MUCH CURIOSITY.</span>
+        </div>
+        <a class="footer-link" href="https://github.com/aka-kika" target="_blank" rel="noopener noreferrer">GITHUB <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+      </div>
+    </footer>
+  </article>
+
+  <script>
+    const progress = document.getElementById('progress');
+    const revealEls = document.querySelectorAll('.reveal');
+
+    function updateProgress() {
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      progress.style.width = `${Math.min(100, Math.max(0, pct))}%`;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.12 });
+
+    revealEls.forEach((el) => observer.observe(el));
+    document.querySelectorAll('[data-share-x]').forEach((link) => {
+      const title = document.title.replace(' — KIKA', '');
+      link.href = `https://x.com/intent/tweet?url=${encodeURIComponent(window.location.href)}&text=${encodeURIComponent(title + ' — KIKA')}`;
+    });
+    document.querySelectorAll('[data-copy-link]').forEach((button) => {
+      button.addEventListener('click', async () => {
+        const label = button.querySelector('[data-copy-label]');
+        const original = label ? label.textContent : button.textContent;
+        try {
+          await navigator.clipboard.writeText(window.location.href);
+        } catch {
+          const textarea = document.createElement('textarea');
+          textarea.value = window.location.href;
+          document.body.appendChild(textarea);
+          textarea.select();
+          document.execCommand('copy');
+          document.body.removeChild(textarea);
+        }
+        if (label) label.textContent = 'Copied';
+        else button.textContent = 'Copied';
+        setTimeout(() => {
+          if (label) label.textContent = original;
+          else button.textContent = original;
+        }, 1800);
+      });
+    });
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    updateProgress();
+  </script>
+</body>
+</html>

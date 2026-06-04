@@ -96,6 +96,6 @@ Keep site and blog footers minimal and consistent:
 
 - `© KIKA 2026 / PERSONAL SOFTWARE LAB`
 - `BUILT WITH AI AND TOO MUCH CURIOSITY.`
-- one GitHub link to `https://github.com/dot-RealityTest`
+- one GitHub link to `https://github.com/aka-kika`
 
 Avoid adding footer nav, product links, author cards, or store links unless the footer direction changes intentionally.

@@ -9,6 +9,7 @@
   ],
   "rewrites": [
     { "source": "/blog/rituals", "destination": "/blog/rituals.html" },
+    { "source": "/blog/seedling", "destination": "/blog/seedling.html" },
     { "source": "/blog/what-im-building-june-2026", "destination": "/blog/what-im-building-june-2026.html" },
     { "source": "/blog/missingpieces", "destination": "/blog/missingpieces.html" },
     { "source": "/blog/my-workflow-routing", "destination": "/blog/my-workflow-routing.html" },

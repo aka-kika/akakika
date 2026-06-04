@@ -1,4 +1,4 @@
-const owner = "dot-RealityTest";
+const owner = "aka-kika";
 const repo = "breakpoint";
 const releasesUrl = `https://api.github.com/repos/${owner}/${repo}/releases/latest`;
 
