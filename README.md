@@ -54,6 +54,15 @@ Removed Vercel projects:
 - `bobiblog-astro`
 - `bobiblog`
 
+## Commit Workflow
+
+Before every commit, review whether the change requires documentation updates.
+
+- Update `README.md` for project behavior, local development, build, deploy, routing, or workflow changes.
+- Update `CHANGELOG.md` for user-facing site/content changes.
+- Update `AGENTS.md` for agent instructions, cleanup rules, screenshot rules, or process changes.
+- If no docs need updating, call that out in the final summary for the work.
+
 ## App Landing Pages
 
 The `/apps` page links directly to each app's real landing page:
