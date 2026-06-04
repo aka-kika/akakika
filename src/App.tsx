@@ -411,11 +411,11 @@ const APPS = [
   {
     id: "undrdr",
     name: "UNDRDR",
-    description: "1,165 open-source repos worth watching before they break out.",
-    longDescription: "KIKA's living curation project for hidden open-source gems: all under 1,000 stars at discovery, organized for discovery without the algorithmic noise.",
+    description: "1,000 open-source repos under 1,000 stars, curated before they break out.",
+    longDescription: "KIKA's living curation project for hidden open-source gems: exactly 1,000 repos under 1,000 stars, continuously refreshed without growing past the cap.",
     badges: ["MAIN", "PROJECT"],
     version: "LIVE",
-    size: "1,165 REPOS",
+    size: "1,000 REPOS",
     url: "https://undrdr.com/",
     image: "/icons/undrdr-icon.png",
     accent: "#6d80a6",
@@ -1398,18 +1398,18 @@ If you're building with AI agents, my advice is simple: **invest in memory and r
   {
     id: "683-repos-nobody-knows-about",
     date: "Tuesday, April 28, 2026",
-    title: "683 REPOS NOBODY KNOWS ABOUT",
+    title: "1,000 REPOS UNDER 1,000 STARS",
     category: "CURATION",
     status: "PUBLISHED",
-    excerpt: "what i learned curating undrdr for a year. the patterns in what gets ignored. why stars are a garbage metric. and the repos that changed how i work.",
+    excerpt: "what i learned curating undrdr as a capped archive of 1,000 repos under 1,000 stars. why stars are a garbage metric, and why the cap matters.",
     readTime: "4 MIN READ",
-    content: `# 683 repos nobody knows about
+    content: `# 1,000 repos under 1,000 stars
 
-what i learned curating undrdr for a year. the patterns in what gets ignored. why stars are a garbage metric. and the repos that changed how i work.
+what i learned curating undrdr as a capped archive of 1,000 repos under 1,000 stars. the patterns in what gets ignored. why stars are a garbage metric. and the repos that changed how i work.
 
-six hundred and eighty-three.
+one thousand.
 
-that's how many open source repos i've hand-picked, one by one, over the last year. all of them under 1,000 stars. most of them under 100. some of them at zero.
+that's the official shape of undrdr: 1,000 open source repos under 1,000 stars. not 1,001. not an infinite feed. the list gets updated, refreshed, and pruned, but it never grows past the cap.
 
 nobody asked me to do this. there's no business model. no vc pitch. i just kept finding incredible work buried under the algorithm's preference for things that are already popular, and it started to feel criminal not to organize it.
 
@@ -1418,7 +1418,7 @@ so i built undrdr. and here's what a year of staring at the long tail of open so
 
 ## stars are a garbage metric
 
-here's the number that broke my brain: 316 of the 683 repos i curated have under 50 stars. 427 have under 100. the median is 59.
+here's the number that broke my brain: most useful software still lives far below the visibility line. many of the best repos in undrdr have under 50 stars. plenty have under 100. stars measure distribution, not usefulness.
 
 fifty-nine stars. that's it. that's the "middle" of open source quality.
 
@@ -1431,7 +1431,7 @@ i stopped caring about stars around week three. what i care about now is: does t
 
 ## the mac is quietly eating everything
 
-173 of the 683 repos are written in swift. that's more than python (48), typescript (25), go (14), and rust (12) combined.
+the mac-native corner keeps showing up. swift projects, menu bar tools, local-first utilities, tiny automation apps. not because they're trendy, but because people building for their own machines tend to solve concrete problems.
 
 the narrative says the future is web-first. the data says otherwise. there's an entire ecosystem of people building native mac tools — menu bar apps, cli utilities, system-level integrations — and almost none of them get the attention they deserve.
 
@@ -1472,7 +1472,7 @@ then i look at every single one.
 
 that's the part that scales can't replicate. curation isn't filtering. it's judgment. it's looking at a repo and knowing: this matters. not because it's popular, but because someone sat down and solved a real problem in a real way, and the only thing standing between them and the people who need it is an algorithm that prefers things that are already seen.
 
-undrdr is my way of fighting that. one repo at a time. 683 so far. and i'm not stopping.
+undrdr is my way of fighting that. 1,000 repos under 1,000 stars, always refreshed, never inflated.
 
 
 ## if you take one thing from this
@@ -1483,7 +1483,7 @@ you'll find better software. i guarantee it.
 
 and if you find something good — the kind of repo that makes you go "how does nobody know about this?" — send it my way. undrdr/submit. i'll check it. if it fits, it goes in.
 
-written after running the weekly undrdr generator at 2 am. 683 repos and counting.
+written after running the weekly undrdr generator at 2 am. 1,000 repos under 1,000 stars, and the cap stays sacred.
 `
   },
   {
@@ -2342,7 +2342,7 @@ export default function App() {
                       <div className="space-y-4">
                         <div className="flex items-center gap-3"><span className="text-[9px] font-mono text-accent font-bold px-2 py-1 bg-accent/5 rounded-sm uppercase tracking-widest">RESEARCH</span><span className="text-[10px] font-mono text-muted opacity-50">LIVE</span></div>
                         <h3 className="text-2xl font-bold tracking-tighter uppercase group-hover/building:text-accent transition-colors">UNDRDR</h3>
-                        <p className="text-xs text-dark leading-relaxed">1,165 open-source repos worth watching before they break out. KIKA's main curation project.</p>
+                        <p className="text-xs text-dark leading-relaxed">1,000 open-source repos under 1,000 stars. KIKA's capped curation project for tools worth watching before they break out.</p>
                         <div className="w-full h-[2px] bg-black/5 rounded-full overflow-hidden mt-6"><motion.div initial={{ width: 0 }} animate={{ width: "100%" }} transition={{ duration: 1.5, ease: "circOut" }} className="h-full bg-accent" /></div>
                       </div>
                     </div>
