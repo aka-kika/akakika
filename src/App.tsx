@@ -366,6 +366,21 @@ const AppIcon = ({ id, className = "" }: { id: string; className?: string }) => 
 
 const APPS = [
   {
+    id: "missingpieces",
+    name: "missingpieces",
+    description: "A calm macOS menu bar companion for Pieces OS next steps.",
+    longDescription: "missingpieces shows the next steps that Pieces OS already noticed in recent workstream summaries. Open the menu bar popover, scan what you may have missed, copy what matters, and mark the rest done locally.",
+    badges: ["macOS", "PIECES"],
+    version: "1.0.0-b3",
+    size: "APP",
+    url: "https://dot-realitytest.github.io/missingpieces/",
+    image: "/icons/missingpieces-icon.png",
+    accent: "#75bcbc",
+    surface: "#f7f8fb",
+    group: "NEW",
+    openInNewWindow: true
+  },
+  {
     id: "autopilot-codex",
     name: "Autopilot for Codex",
     description: "A local-first macOS control layer for OpenAI Codex CLI.",
@@ -396,11 +411,11 @@ const APPS = [
   {
     id: "undrdr",
     name: "UNDRDR",
-    description: "683 open-source repos worth watching before they break out.",
+    description: "1,165 open-source repos worth watching before they break out.",
     longDescription: "KIKA's living curation project for hidden open-source gems: all under 1,000 stars at discovery, organized for discovery without the algorithmic noise.",
     badges: ["MAIN", "PROJECT"],
     version: "LIVE",
-    size: "683 REPOS",
+    size: "1,165 REPOS",
     url: "https://undrdr.com/",
     image: "/icons/undrdr-icon.png",
     accent: "#6d80a6",
@@ -450,20 +465,6 @@ const APPS = [
     group: "MACOS TOOLS"
   },
   {
-    id: "dgmd",
-    name: "DGMD",
-    description: "Screenshot in. System out. Turn interfaces into build-ready design docs.",
-    longDescription: "DGMD converts screenshots into structured DESIGN.md files and style prompts so AI coding tools can rebuild interfaces with better fidelity and less guessing.",
-    badges: ["AI", "DESIGN"],
-    version: "LIVE",
-    size: "TOOL",
-    url: "https://akakika.com/dgmd/",
-    image: "https://akakika.com/dgmd/assets/app-icon.png",
-    accent: "#8b5cf6",
-    surface: "#120d1f",
-    group: "MACOS TOOLS"
-  },
-  {
     id: "resq",
     name: "RESQ",
     description: "Rescue messy text into clean Markdown.",
@@ -508,8 +509,8 @@ const APPS = [
   {
     id: "focus",
     name: "Focus",
-    description: "A keyboard-centric macOS task app.",
-    longDescription: "A lightweight native Mac utility — fast to open, compact, keyboard-friendly, and visually calm. Built for small daily focus, not task-management theater.",
+    description: "A keyboard-centric pomodoro timer and macOS focus app.",
+    longDescription: "A lightweight native Mac pomodoro timer — fast to open, compact, keyboard-friendly, and visually calm. Built for small daily focus sessions, not task-management theater.",
     badges: ["macOS", "TASKS"],
     version: "LIVE",
     size: "APP",
@@ -641,6 +642,24 @@ type BlogToolIcon = {
 };
 
 const BLOG_TOOL_STACK: Record<string, BlogToolIcon[]> = {
+  "rituals": [
+    { src: "/blog/icons/apple_icon.png", name: "macOS", role: "platform" },
+    { src: "/blog/icons/swiftui_icon.png", name: "SwiftUI", role: "frontend" },
+    { src: "/blog/icons/settings_app_icon.png", name: "UserDefaults", role: "storage" },
+    { src: "/blog/icons/code_app_icon.png", name: "Codex", role: "dev AI" },
+  ],
+  "what-im-building-june-2026": [
+    { src: "/blog/icons/terminal_app_icon.png", name: "Jade", role: "project terminal" },
+    { src: "/blog/icons/code_app_icon.png", name: "Reshelf", role: "catalog manager" },
+    { src: "/blog/icons/PiecesOS-memory_app_icon.png", name: "PiecesOS", role: "long-term memory" },
+    { src: "/blog/icons/codex_icon.png", name: "Cursor", role: "AI agent IDE" },
+  ],
+  "missingpieces": [
+    { src: "/blog/icons/PiecesOS-memory_app_icon.png", name: "Pieces OS", role: "workstream memory" },
+    { src: "/blog/icons/swiftui_icon.png", name: "SwiftUI", role: "menu bar app" },
+    { src: "/blog/icons/apple_icon.png", name: "macOS", role: "local surface" },
+    { src: "/blog/icons/download_icon.png", name: "Download", role: "released build" },
+  ],
   "683-repos-nobody-knows-about": [
     { src: "/blog/icons/search_app_icon.png", name: "Discovery", role: "repo finding" },
     { src: "/blog/icons/code_app_icon.png", name: "Code", role: "source review" },
@@ -656,7 +675,7 @@ const BLOG_TOOL_STACK: Record<string, BlogToolIcon[]> = {
   "agents-making-tools-for-agents": [
     { src: "/blog/icons/codex_icon.png", name: "Codex", role: "builder agent" },
     { src: "/blog/icons/ollama_icon.png", name: "Ollama", role: "local model" },
-    { src: "/blog/icons/memory_app_icon.png", name: "Memory", role: "context graph" },
+    { src: "/blog/icons/PiecesOS-memory_app_icon.png", name: "Memory", role: "context graph" },
     { src: "/blog/icons/terminal_app_icon.png", name: "Hermes", role: "dispatch" },
   ],
   "six-hours-four-minutes": [
@@ -672,7 +691,7 @@ const BLOG_TOOL_STACK: Record<string, BlogToolIcon[]> = {
     { src: "/blog/icons/user_app_icon.png", name: "You", role: "context" },
   ],
   "three-tools-that-run-my-life": [
-    { src: "/blog/icons/memory_app_icon.png", name: "Pieces", role: "second brain" },
+    { src: "/blog/icons/PiecesOS-memory_app_icon.png", name: "Pieces", role: "second brain" },
     { src: "/blog/icons/image_app_icon.png", name: "Maestri", role: "canvas" },
     { src: "/blog/icons/terminal_app_icon.png", name: "Hermes", role: "agent" },
     { src: "/blog/icons/ollama_icon.png", name: "Local", role: "private AI" },
@@ -830,6 +849,119 @@ const blogMarkdownComponents = {
 };
 
 const BLOG_POSTS: BlogPost[] = [
+  {
+    id: "rituals",
+    date: "June 2026",
+    title: "RITUALS",
+    category: "APPS",
+    status: "PUBLISHED",
+    excerpt: "A quiet macOS menu bar app for repeatable personal checklist rituals.",
+    readTime: "4 MIN READ",
+    content: `# Rituals
+
+*June 2026 · Kika (Nica Loren)*
+
+Rituals is a small macOS menu bar app for repeatable personal checklists. It is for the moments when I already know the kind of work I am doing, but do not want to rebuild the sequence from memory again. Starting a project, ending a session, preparing a release, cleaning a folder: these are patterns. Rituals keeps the pattern nearby.
+
+The tool is small on purpose. It is not a task manager, project manager, dashboard, tracker, or productivity platform. It is simply a quiet place where rituals live so I do not have to hold them in my head.
+
+## The Friction
+
+The annoying part is not always the work itself. Often the hard part is remembering the shape around the work. What do I always forget before I start? What needs to be checked before I stop? What belongs in the release pass? What is the next clean step after an interruption? For ADHD, this kind of surrounding structure can eat more energy than the task.
+
+- What do I always forget before I start?
+- What needs to be checked before I stop?
+- What is the next clean step after an interruption?
+
+## The Idea
+
+Rituals treats a checklist as a small pipeline. You click the menu bar icon, choose the stage you are in, and the steps appear inline in the popover. One ritual at a time. No dashboard. No current project. No score.
+
+## What It Does
+
+Rituals ships with polished default checklists for common work transitions. Each ritual is a Markdown file that defines sections and steps. At runtime, the app loads these templates and keeps your checked state and collapsed sections saved locally with UserDefaults and AppStorage.
+
+1. Menu Bar Popover — pick a ritual, check steps inline, collapse sections, and move on.
+2. Editor Window — add, remove, or reorder rituals, sections, and steps.
+3. Export — save your rituals as JSON or Markdown for backup, sharing, or version control.
+
+## What I Learned
+
+A checklist app can become noisy very quickly. The useful version was not the one with the most structure. It was the one that stayed small enough to trust.
+`,
+  },
+  {
+    id: "what-im-building-june-2026",
+    date: "June 2026",
+    title: "WHAT I'M BUILDING — JUNE 2026",
+    category: "MACOS DEVELOPMENT",
+    status: "PUBLISHED",
+    excerpt: "A behind-the-scenes look at my current projects: Jade, Reshelf, and the AI-first workflow stack I'm building for people who think in systems.",
+    readTime: "5 MIN READ",
+    content: `# What I'm Building — June 2026
+
+*June 2026 · Kika (Nica Loren)*
+
+Every few months I step back and look at what I'm actually building. Not the roadmap, not the someday-maybe list — the things that are alive right now, with real commits, real frustration, and real breakthroughs. Here's what's on my bench in June 2026.
+
+I'm deep in what I call the "project-awareness" layer — the space between your code editor and your terminal where context gets lost. When you jump between 5 active repos, 3 runbooks, and a dozen AI conversations, you need systems that remember what you were doing. Not you. The system.
+
+## Jade — Terminal Meets Project Context
+
+I forked my own cmux project into Jade — a terminal multiplexer that knows which project you're in, what branch you're on, which ports are running, and whether you have unread notifications. The sidebar doesn't just list windows. It surfaces attention.
+
+- Project-aware sidebar — metadata lives inside each project's card.
+- Notification rings — panes glow when they need your attention.
+- AI provider integrations — OpenAI, Anthropic, Gemini, and GitHub Copilot behind one completion service.
+
+## How the Workflow Actually Works
+
+I build in tight loops with Cursor agents and my own Pieces OS memory system. Every session gets logged. Every decision gets documented.
+
+1. Capture context with Pieces OS.
+2. Handoff files between agents.
+3. Keep git discipline with Obsidian integration.
+
+## The Reshelf Ecosystem
+
+Beyond the terminal tools, I'm building Reshelf: an open-source catalog manager that helps you curate, track, and deploy projects from a single dashboard.
+
+## The Philosophy Behind It All
+
+I'm not building apps. I'm building memory systems. Every tool I make follows the same principle: the system should remember so I can forget.
+`,
+  },
+  {
+    id: "missingpieces",
+    date: "June 2026",
+    title: "MISSINGPIECES",
+    category: "APPS",
+    status: "PUBLISHED",
+    excerpt: "A tiny macOS menu bar app that turns recent Pieces OS next steps into a calm local follow-up list.",
+    readTime: "3 MIN READ",
+    content: `# missingpieces
+
+*June 2026 · Kika (Nica Loren)*
+
+missingpieces is a small macOS menu bar app for people already using Pieces OS. It shows the follow-ups Pieces already noticed in recent workstream summaries.
+
+## The friction
+
+Pieces OS can remember a lot about a work session. The annoying part is that useful next steps can still stay buried inside summaries.
+
+## What it does
+
+- Lives in the macOS menu bar with no Dock icon.
+- Connects to Pieces OS on localhost.
+- Reads recent workstream summaries and extracts "Next Steps" bullets.
+- Groups follow-ups by the work session they came from.
+- Lets me expand, copy, mark done, and restore rows locally.
+
+## Current status
+
+missingpieces is publicly released as version 1.0.0 build 3. It is Developer ID signed, notarized, and stapled.
+`,
+  },
   {
     id: "why-i-pay-for-cursor",
     date: "May 2026",
@@ -1357,7 +1489,7 @@ written after running the weekly undrdr generator at 2 am. 683 repos and countin
   {
     id: "forty-seven-dashboards",
     date: "Wednesday, May 6, 2026",
-    title: "FORTY SEVEN DASHBOARDS",
+    title: "47 DASHBOARDS I BUILT (AND WHY 46 FAILED)",
     category: "SYSTEMS",
     status: "PUBLISHED",
     excerpt: "i have 47 dashboards. i made a dashboard that counts my dashboards. and i still don't know what's happening.",
@@ -1685,6 +1817,8 @@ without them, i'm just a person with ideas and no execution.
 
 with them, i'm dangerous.
 
+if you want the tiny app side of this same workflow, look at [Mochi](/apps/mochi), my task companion for turning work into a small ritual, and [FolderWardrobe](/apps/folderwardrobe), the folder-customization utility that keeps project spaces easier to recognize.
+
 written by hermes agent that's using pieces for context and growth to inspire more every maestri out there <3
 `
   },
@@ -1743,14 +1877,14 @@ More where this came from. Follow the repo.
   {
     id: "mlx-apple-silicons-secret-weapon",
     date: "Monday, April 13, 2026",
-    title: "MLX \u2014 APPLE SILICON'S SECRET WEAPON",
+    title: "APPLE M CHIP MACHINE LEARNING: MLX IS APPLE SILICON'S SECRET WEAPON",
     category: "LOCAL AI",
     status: "PUBLISHED",
-    excerpt: "your m-chip was born for this. apple's machine learning framework runs models at near-native speed, no cuda, no gpu drivers, no python dependency hell. just your hardware doing what it was designed to do.",
+    excerpt: "apple m chip machine learning is where MLX shines: local AI on Apple Silicon at near-native speed, no cuda, no gpu drivers, no python dependency hell.",
     readTime: "5 MIN READ",
-    content: `# MLX — Apple Silicon's secret weapon
+    content: `# Apple M chip machine learning: MLX is Apple Silicon's secret weapon
 
-your m-chip was born for this. apple's machine learning framework runs models at near-native speed, no cuda, no gpu drivers, no python dependency hell. just your hardware doing what it was designed to do.
+your m-chip was born for this. apple m chip machine learning is not a niche anymore: apple's MLX framework runs models at near-native speed, no cuda, no gpu drivers, no python dependency hell. just your hardware doing what it was designed to do.
 
 i've been running local ai on macs for two years. ollama, llama.cpp, python venvs that break every update, cuda drivers that don't exist on apple silicon — i've fought all of it. and then i found MLX.
 
@@ -1862,6 +1996,9 @@ const itemVariants = {
 };
 
 const STANDALONE_BLOG_IDS = new Set([
+  "rituals",
+  "what-im-building-june-2026",
+  "missingpieces",
   "why-i-pay-for-cursor",
   "why-i-built-lapapi",
   "my-workflow-routing",
@@ -2205,7 +2342,7 @@ export default function App() {
                       <div className="space-y-4">
                         <div className="flex items-center gap-3"><span className="text-[9px] font-mono text-accent font-bold px-2 py-1 bg-accent/5 rounded-sm uppercase tracking-widest">RESEARCH</span><span className="text-[10px] font-mono text-muted opacity-50">LIVE</span></div>
                         <h3 className="text-2xl font-bold tracking-tighter uppercase group-hover/building:text-accent transition-colors">UNDRDR</h3>
-                        <p className="text-xs text-dark leading-relaxed">683 open-source repos worth watching before they break out. KIKA's main curation project.</p>
+                        <p className="text-xs text-dark leading-relaxed">1,165 open-source repos worth watching before they break out. KIKA's main curation project.</p>
                         <div className="w-full h-[2px] bg-black/5 rounded-full overflow-hidden mt-6"><motion.div initial={{ width: 0 }} animate={{ width: "100%" }} transition={{ duration: 1.5, ease: "circOut" }} className="h-full bg-accent" /></div>
                       </div>
                     </div>
@@ -2416,6 +2553,8 @@ export default function App() {
                             style={{
                               ['--app-accent' as any]: (app as any).accent,
                             } as React.CSSProperties}
+                            target={(app as any).openInNewWindow ? "_blank" : undefined}
+                            rel={(app as any).openInNewWindow ? "noopener noreferrer" : undefined}
                             className="group block cursor-pointer bg-white/40 border border-black/[0.08] hover:border-black/20 rounded-2xl p-4 md:p-5 transition-all text-left"
                           >
                             {/* Icon */}
@@ -2468,6 +2607,8 @@ export default function App() {
                             style={{
                               ['--app-accent' as any]: (app as any).accent,
                             } as React.CSSProperties}
+                            target={(app as any).openInNewWindow ? "_blank" : undefined}
+                            rel={(app as any).openInNewWindow ? "noopener noreferrer" : undefined}
                             className="group block w-full cursor-pointer border-b border-black/[0.06] hover:border-black/12 transition-all text-left"
                           >
                             <div className="flex items-center gap-4 md:gap-6 py-4 md:py-5 px-2 md:px-4 -mx-2 md:-mx-4 rounded-lg">
@@ -2623,6 +2764,8 @@ export default function App() {
                       {(selectedApp as any).url ? (
                         <a
                           href={(selectedApp as any).url}
+                          target={(selectedApp as any).openInNewWindow ? "_blank" : undefined}
+                          rel={(selectedApp as any).openInNewWindow ? "noopener noreferrer" : undefined}
                           className="h-14 px-7 bg-black text-white flex items-center justify-center gap-3 font-black tracking-widest uppercase hover:bg-dark transition-colors"
                         >
                           <ExternalLink size={18} /> OPEN PAGE

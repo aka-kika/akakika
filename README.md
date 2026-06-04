@@ -19,15 +19,33 @@ npm run build
 
 The production output is written to `dist/`.
 
+## Build Performance
+
+`vite.config.ts` uses Rollup `manualChunks` to keep the production JavaScript below Vite's default large-chunk warning threshold.
+
+Current manual chunks:
+
+- `motion` for Motion animation code.
+- `icons` for `lucide-react`.
+- `markdown` for `react-markdown` and its markdown parser/rendering dependencies.
+
+After changing dependencies or moving page code, run `npm run build` and check the chunk table. The main `index-*.js` chunk should stay below `500 kB` uncompressed. If the warning returns, prefer moving route-specific code or blog content behind lazy imports before raising `build.chunkSizeWarningLimit`.
+
 ## Deploy
 
 This folder is linked to the Vercel project `akakika-v2`.
 
 ```bash
-vercel --prod --yes
+vercel deploy --prod -y --no-wait
 ```
 
-The project has `akakika.com` attached in Vercel, so production deploys should report `Aliased: https://akakika.com`. Use manual alias commands only if Vercel does not attach the domain automatically.
+After deploy, confirm readiness with:
+
+```bash
+vercel inspect <deployment-url>
+```
+
+The project has `akakika.com` and `www.akakika.com` attached in Vercel, so production deploys should list those under aliases when ready. Use manual alias commands only if Vercel does not attach the domains automatically.
 
 Do not deploy the older Bobi/Astro projects for `akakika.com`; they were previous site shells and were removed from Vercel on 2026-05-18 to prevent domain mix-ups.
 
@@ -42,7 +60,6 @@ The `/apps` page links directly to each app's real landing page:
 
 - `/breakpoint/`
 - `/localhostwatcher/`
-- `/dgmd/`
 - `/resq/`
 - `/mochi/`
 - `/clipsan/`
@@ -63,7 +80,8 @@ Otherwise app landing pages will be swallowed by the React app.
 
 - `/apps/<id>` is still supported by the React app as an internal fallback, but the visible apps index should send visitors to the standalone landing pages.
 - `focus.akakika.com` currently returns `403`, so the Focus landing page is served at `/focus/` from this site.
-- Root-level QA screenshots are ignored by Git. Public assets under `public/` are intentional site assets.
+- Local screenshots belong in `screenshots/`; root-level screenshots are not allowed. Public assets under `public/` are intentional site assets.
+- Screenshot binaries are ignored by Git by default. See `screenshots/README.md` and `AGENTS.md` before adding visual captures.
 
 ## Templates
 

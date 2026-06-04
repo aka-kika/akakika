@@ -2,14 +2,18 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "framework": null,
+  "redirects": [
+    { "source": "/undrdr", "destination": "https://undrdr.com/", "permanent": true },
+    { "source": "/undrdr/", "destination": "https://undrdr.com/", "permanent": true },
+    { "source": "/undrdr/(.*)", "destination": "https://undrdr.com/", "permanent": true }
+  ],
   "rewrites": [
+    { "source": "/blog/rituals", "destination": "/blog/rituals.html" },
+    { "source": "/blog/what-im-building-june-2026", "destination": "/blog/what-im-building-june-2026.html" },
+    { "source": "/blog/missingpieces", "destination": "/blog/missingpieces.html" },
     { "source": "/blog/my-workflow-routing", "destination": "/blog/my-workflow-routing.html" },
     { "source": "/blog/why-i-built-lapapi", "destination": "/blog/why-i-built-lapapi.html" },
     { "source": "/blog/why-i-pay-for-cursor", "destination": "/blog/why-i-pay-for-cursor.html" },
-    { "source": "/undrdr/graph", "destination": "/undrdr/graph/index.html" },
-    { "source": "/undrdr/graph/(.*)", "destination": "/undrdr/graph/$1" },
-    { "source": "/undrdr", "destination": "/undrdr/index.html" },
-    { "source": "/undrdr/(.*)", "destination": "/undrdr/$1" },
     { "source": "/brand", "destination": "/brand/index.html" },
     { "source": "/brand/(.*)", "destination": "/brand/$1" },
     { "source": "/hex", "destination": "/hex/index.html" },
@@ -21,9 +25,6 @@
     { "source": "/localhostwatcher", "destination": "/localhostwatcher/index.html" },
     { "source": "/localhostwatcher/", "destination": "/localhostwatcher/index.html" },
     { "source": "/localhostwatcher/(.*)", "destination": "/localhostwatcher/$1" },
-    { "source": "/dgmd", "destination": "/dgmd/index.html" },
-    { "source": "/dgmd/", "destination": "/dgmd/index.html" },
-    { "source": "/dgmd/(.*)", "destination": "/dgmd/$1" },
     { "source": "/resq", "destination": "/resq/index.html" },
     { "source": "/resq/", "destination": "/resq/index.html" },
     { "source": "/resq/(.*)", "destination": "/resq/$1" },
@@ -45,12 +46,6 @@
     }
   ],
   "headers": [
-    {
-      "source": "/undrdr/graph/(.*)",
-      "headers": [
-        { "key": "Cache-Control", "value": "no-cache, no-store, must-revalidate" }
-      ]
-    },
     {
       "source": "/(robots.txt|sitemap.xml|favicon.svg)",
       "headers": [
