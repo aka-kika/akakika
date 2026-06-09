@@ -1,6 +1,6 @@
 # AKAKIKA
 
-[akakika.com](https://akakika.com) — portfolio, blog, and a curated list of interesting open source projects.
+[akakika.com](https://akakika.com) — portfolio, blog, apps, and the KIKA Brand Lab.
 
 What you'll find:
 
@@ -8,8 +8,10 @@ What you'll find:
 |------|-------------|
 | `/` | Home — projects and about |
 | `/apps` | App showcase |
-| `/undrdr` | UNDRDR — under the radar repos, updated weekly |
+| `/brand` | KIKA Brand Lab — local brand app |
 | `/blog` | Blog posts |
+
+UNDRDR is a separate site at [undrdr.com](https://undrdr.com/). Old `/undrdr` paths on `akakika.com` are permanent redirects to that site.
 
 ## Get started
 
@@ -28,6 +30,10 @@ npm run build
 
 The finished site ends up in the `dist` folder. Vercel handles hosting.
 
-## UNDRDR data
+Production is the Vercel project `akakika-v2`, with `akakika.com` and `www.akakika.com` attached. Before deploying, run `git status --short --branch` and confirm the branch/commit you are about to deploy is the one you intend to ship.
 
-The repo list lives in `public/assets/data/undrdr.json`. Older weeks are saved as `undrdr-week-{week}-{year}.json`. A script updates these weekly.
+## Route Ownership
+
+- `/brand` is served from `public/brand/` by this site.
+- `/undrdr` and `/undrdr/*` are not served by this site. They redirect to `https://undrdr.com/`.
+- Do not re-add UNDRDR rewrites, `dist/undrdr` build copies, or sitemap entries under `akakika.com/undrdr`.

@@ -1,13 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion, useMotionValue, useMotionValueEvent, useScroll, useTransform } from 'motion/react';
 import Lenis from 'lenis';
-import UndrdrPage from './UndrdrPage';
-import UndrdrGraph from './UndrdrGraph';
-import UndrdrSubmitPage from './UndrdrSubmitPage';
-import UndrdrLogPage from './UndrdrLogPage';
-import UndrdrQueuePage from './UndrdrQueuePage';
 import { Analytics } from '@vercel/analytics/react';
 import { useMeta } from './useMeta';
+
+const UNDRDR_URL = 'https://undrdr.com/';
 
 const PAGE_META: Record<string, { title: string; description: string }> = {
   '/': { title: 'KIKA — Digital Craft macOS Systems', description: 'Navigating the digital unknown, pixel by pixel. macOS apps, AI experiments, and digital tools built by an indie developer.' },
@@ -18,9 +15,6 @@ const PAGE_META: Record<string, { title: string; description: string }> = {
   '/blog/mlx-apple-silicons-secret-weapon': { title: 'MLX: Apple Silicon\'s Secret Weapon — KIKA', description: 'Apple Silicon isn\'t just fast — it\'s a different paradigm. MLX makes it accessible.' },
   '/blog/the-great-ai-divergence': { title: 'The Great AI Divergence — KIKA', description: 'The gap between AI that serves you and AI that replaces you is widening. Here\'s what that means.' },
   '/goodnews': { title: 'Good News — KIKA', description: 'Positive signals from the tech world. Because someone has to curate the good stuff.' },
-  '/undrdr': { title: 'UNDRDR — Hidden GitHub Repos | KIKA', description: '683 hand-picked open source repos under 1000 stars. AI agents, dev tools, creative code — curated weekly.' },
-  '/undrdr/graph': { title: 'UNDRDR Graph — Interactive Network | KIKA', description: 'Explore the connections between 683 hidden GitHub repos. Interactive force-directed graph visualization.' },
-  '/undrdr/submit': { title: 'Submit a Repo — UNDRDR | KIKA', description: 'Know a repo flying under the radar? Submit it to UNDRDR. If it fits, it goes in.' },
   '/blog/683-repos-nobody-knows-about': { title: '683 Repos Nobody Knows About — KIKA', description: 'What I learned curating UNDRDR for a year. The patterns in what gets ignored. Why stars are a garbage metric. And the repos that changed how I work.' },
 };
 
@@ -161,18 +155,30 @@ const TerminalBlock: React.FC<{ lines: string[]; delay?: number; prefix?: string
   );
 };
 
-const BlogNavLink: React.FC<{ path: string; children: React.ReactNode; className?: string }> = ({ path, children, className }) => (
-  <a
-    href={path}
-    className={className}
-    onClick={(event) => {
-      event.preventDefault();
-      navigateTo(path);
-    }}
-  >
-    {children}
-  </a>
-);
+const toUndrdrUrl = (path: string) => {
+  const suffix = path.replace(/^\/undrdr\/?/, '');
+  return suffix ? `${UNDRDR_URL}${suffix}` : UNDRDR_URL;
+};
+
+const BlogNavLink: React.FC<{ path: string; children: React.ReactNode; className?: string }> = ({ path, children, className }) => {
+  const isExternal = /^https?:\/\//.test(path);
+
+  return (
+    <a
+      href={path}
+      target={isExternal ? '_blank' : undefined}
+      rel={isExternal ? 'noopener noreferrer' : undefined}
+      className={className}
+      onClick={(event) => {
+        if (isExternal) return;
+        event.preventDefault();
+        navigateTo(path);
+      }}
+    >
+      {children}
+    </a>
+  );
+};
 
 const useSmoothScroll = (wrapperRef: React.RefObject<HTMLElement | HTMLDivElement | null>, contentRef?: React.RefObject<HTMLElement | HTMLDivElement | null>) => {
   useEffect(() => {
@@ -235,7 +241,7 @@ const HomeStickyHeader: React.FC<{
       <BlogNavLink path="/" className="hover-accent-text cursor-pointer transition-colors">
         HOME
       </BlogNavLink>
-      <BlogNavLink path="/undrdr" className="hover-accent-text cursor-pointer transition-colors">
+      <BlogNavLink path={UNDRDR_URL} className="hover-accent-text cursor-pointer transition-colors">
         UNDRDR
       </BlogNavLink>
       <BlogNavLink path="/blog" className="hover-accent-text cursor-pointer transition-colors">
@@ -371,7 +377,7 @@ const Phase0: React.FC<{
           </a>
           <span className="opacity-30">·</span>
           <a
-            href="https://github.com/dot-RealityTest"
+            href="https://github.com/aka-kika"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-300 transition-colors hover:text-white"
@@ -1268,7 +1274,7 @@ const BlogPost683Repos: React.FC<{ theme: ThemeName; onToggleTheme: () => void }
           <h2 className="mb-4 font-display text-3xl tracking-tighter text-white">if you take one thing from this</h2>
           <p>next time you're searching for a tool, sort by "recently updated" instead of "most stars." scroll past the first page. look at the repos with 12 stars and a README that actually explains what it does.</p>
           <p className="mt-4">you'll find better software. i guarantee it.</p>
-          <p className="mt-4">and if you find something good — the kind of repo that makes you go "how does nobody know about this?" — send it my way. <a href="/undrdr/submit" className="accent-text-soft underline transition-colors hover:text-white">undrdr/submit</a>. i'll check it. if it fits, it goes in.</p>
+          <p className="mt-4">and if you find something good — the kind of repo that makes you go "how does nobody know about this?" — send it my way. <a href="https://undrdr.com/submit" className="accent-text-soft underline transition-colors hover:text-white">undrdr/submit</a>. i'll check it. if it fits, it goes in.</p>
         </section>
 
         <p className="mt-12 text-sm italic text-gray-400">written after running the weekly undrdr generator at 2 am. 683 repos and counting.</p>
@@ -1645,9 +1651,9 @@ function SiteFooter() {
           <div>
             <p className="mb-1.5 font-mono text-[9px] uppercase tracking-widest text-gray-600">explore</p>
             <div className="flex flex-col gap-0.5">
-              <BlogNavLink path="/undrdr" className="font-mono text-[10px] text-gray-600 transition-colors hover:text-gray-300">UNDRDR</BlogNavLink>
-              <BlogNavLink path="/undrdr/graph" className="font-mono text-[10px] text-gray-600 transition-colors hover:text-gray-300">graph</BlogNavLink>
-              <BlogNavLink path="/undrdr/submit" className="font-mono text-[10px] text-gray-600 transition-colors hover:text-gray-300">submit</BlogNavLink>
+              <BlogNavLink path={UNDRDR_URL} className="font-mono text-[10px] text-gray-600 transition-colors hover:text-gray-300">UNDRDR</BlogNavLink>
+              <BlogNavLink path="https://undrdr.com/graph" className="font-mono text-[10px] text-gray-600 transition-colors hover:text-gray-300">graph</BlogNavLink>
+              <BlogNavLink path="https://undrdr.com/submit" className="font-mono text-[10px] text-gray-600 transition-colors hover:text-gray-300">submit</BlogNavLink>
               <BlogNavLink path="/blog" className="font-mono text-[10px] text-gray-600 transition-colors hover:text-gray-300">blog</BlogNavLink>
               <BlogNavLink path="/goodnews" className="font-mono text-[10px] text-gray-600 transition-colors hover:text-gray-300">good news ✦</BlogNavLink>
               <BlogNavLink path="/apps" className="font-mono text-[10px] text-gray-600 transition-colors hover:text-gray-300">apps</BlogNavLink>
@@ -1659,7 +1665,7 @@ function SiteFooter() {
             <p className="mb-1.5 font-mono text-[9px] uppercase tracking-widest text-gray-600">about</p>
             <div className="flex flex-col gap-0.5">
               <BlogNavLink path="/" className="font-mono text-[10px] text-gray-600 transition-colors hover:text-gray-300">about me</BlogNavLink>
-              <a href="https://github.com/alienator88" target="_blank" rel="noopener noreferrer"
+              <a href="https://github.com/aka-kika" target="_blank" rel="noopener noreferrer"
                 className="font-mono text-[10px] text-gray-600 transition-colors hover:text-gray-300"
               >github</a>
               <span className="font-mono text-[10px] text-gray-800">socials — soon</span>
@@ -1698,6 +1704,12 @@ export default function App() {
   }, []);
 
   useEffect(() => {
+    if (path === '/undrdr' || path.startsWith('/undrdr/')) {
+      window.location.replace(toUndrdrUrl(path));
+    }
+  }, [path]);
+
+  useEffect(() => {
     window.localStorage.setItem('kika-theme', theme);
   }, [theme]);
 
@@ -1729,16 +1741,6 @@ export default function App() {
         <AppsPage theme={theme} onToggleTheme={cycleTheme} />
       ) : path === '/goodnews' ? (
         <GoodNewsPage theme={theme} onToggleTheme={cycleTheme} />
-      ) : path === '/undrdr/graph' ? (
-        <UndrdrGraph />
-      ) : path === '/undrdr/submit' ? (
-        <UndrdrSubmitPage theme={theme} onToggleTheme={cycleTheme} />
-      ) : path === '/undrdr/log' ? (
-        <UndrdrLogPage theme={theme} onToggleTheme={cycleTheme} />
-      ) : path === '/undrdr/queue' ? (
-        <UndrdrQueuePage theme={theme} onToggleTheme={cycleTheme} />
-      ) : path === '/undrdr' ? (
-        <UndrdrPage theme={theme} onToggleTheme={cycleTheme} />
       ) : (
         <HomeExperience theme={theme} onToggleTheme={cycleTheme} />
       )}
@@ -1910,6 +1912,13 @@ const GoodNewsPage: React.FC<{ theme: ThemeName; onToggleTheme: () => void }> = 
 
 const AppsPage: React.FC<{ theme: ThemeName; onToggleTheme: () => void }> = ({ theme, onToggleTheme }) => {
   const apps = [
+    {
+      name: 'KIKA Brand Lab',
+      url: '/brand',
+      image: undefined,
+      imageAlt: 'KIKA Brand Lab',
+      blurb: "KIKA's local brand system app: visual language, identity assets, palette experiments, and reusable design material.",
+    },
     {
       name: 'BreakPoint',
       url: 'https://akakika.com/breakpoint/',
