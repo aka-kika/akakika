@@ -430,7 +430,7 @@ const APPS = [
     badges: ["OPEN", "TOOL"],
     version: "LAB.01",
     size: "WEB",
-    url: "https://brand.akakika.com",
+    url: "/brand",
     image: "/icons/brand-lab-icon.svg",
     accent: "#6d80a6",
     surface: "#0d0d0d",

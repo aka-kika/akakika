@@ -67,6 +67,8 @@ Before every commit, review whether the change requires documentation updates.
 
 The `/apps` page links directly to each app's real landing page:
 
+- `https://undrdr.com/` for UNDRDR, with old `/undrdr` paths redirected there
+- `/brand`
 - `/breakpoint/`
 - `/localhostwatcher/`
 - `/resq/`
@@ -77,13 +79,19 @@ The `/apps` page links directly to each app's real landing page:
 
 Those landing pages live under `public/<app>/` and are copied by Vite into `dist/<app>/`.
 
-`vercel.json` has explicit rewrites for those app folders before the catch-all SPA rewrite. Keep app landing rewrites above:
+`vercel.json` has explicit redirects for migrated external projects and explicit rewrites for local app folders before the catch-all SPA rewrite. Keep app landing rewrites above:
 
 ```json
 { "source": "/(.*)", "destination": "/index.html" }
 ```
 
 Otherwise app landing pages will be swallowed by the React app.
+
+## Route Ownership
+
+- `/brand` is served from `public/brand/` by this site.
+- `/undrdr` and `/undrdr/*` are not served by this site. They redirect to `https://undrdr.com/`.
+- Do not re-add UNDRDR rewrites, static `public/undrdr` bundles, `dist/undrdr` build copies, or sitemap entries under `akakika.com/undrdr`.
 
 ## Notes
 

@@ -5,7 +5,7 @@
   "redirects": [
     { "source": "/undrdr", "destination": "https://undrdr.com/", "permanent": true },
     { "source": "/undrdr/", "destination": "https://undrdr.com/", "permanent": true },
-    { "source": "/undrdr/(.*)", "destination": "https://undrdr.com/", "permanent": true }
+    { "source": "/undrdr/:path*", "destination": "https://undrdr.com/:path*", "permanent": true }
   ],
   "rewrites": [
     { "source": "/blog/rituals", "destination": "/blog/rituals.html" },

@@ -11,6 +11,9 @@ All notable changes to the KIKA site are documented here.
 
 ### Changed
 
+- Pointed UNDRDR traffic to `undrdr.com` and kept KIKA Brand Lab on the local `/brand` app route.
+- Removed the old static UNDRDR bundle and `akakika.com/undrdr` sitemap entries from this site.
+- Added production route ownership and deploy safety rules to `AGENTS.md`.
 - Restored the static blog navigation hover animation.
 - Reordered the top navigation for clearer browsing.
 - Simplified site footers and documented footer/deploy conventions.

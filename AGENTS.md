@@ -2,6 +2,22 @@
 
 This repository is the KIKA site for `akakika.com`.
 
+## Production Routing
+
+- Production Vercel project: `akakika-v2`.
+- Production domains: `akakika.com` and `www.akakika.com`.
+- `/brand` belongs to this site and is served from `public/brand/`.
+- UNDRDR is a separate site at `https://undrdr.com/`.
+- Keep `/undrdr`, `/undrdr/`, and `/undrdr/:path*` as permanent redirects to `https://undrdr.com/`.
+- Do not re-add local `/undrdr` rewrites, static `public/undrdr` bundles, `dist/undrdr` build copies, or `akakika.com/undrdr` sitemap entries.
+
+## Deploy Safety
+
+- Before every production deploy, run `git status --short --branch` and confirm the checked-out branch and latest commit are the intended production source.
+- Deploy only from a clean worktree after committing the exact changes being shipped.
+- If another branch has the desired change, merge or cherry-pick it onto the production branch first. Do not deploy a divergent branch over production unless the divergence has been reviewed.
+- After deploy, verify the live domain with `curl -I https://akakika.com` and route checks for `/brand` and `/undrdr`.
+
 ## Screenshot Rules
 
 - Do not save screenshots or browser QA captures in the project root.
