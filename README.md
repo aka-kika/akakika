@@ -67,6 +67,7 @@ Before every commit, review whether the change requires documentation updates.
 
 The `/apps` page links directly to each app's real landing page:
 
+- `https://github.com/aka-kika/Seedling` for Seedling, until it has a dedicated page
 - `https://undrdr.com/` for UNDRDR, with old `/undrdr` paths redirected there
 - `/brand`
 - `/breakpoint/`
@@ -78,6 +79,7 @@ The `/apps` page links directly to each app's real landing page:
 - `/folderwardrobe/`
 
 Those landing pages live under `public/<app>/` and are copied by Vite into `dist/<app>/`.
+GitHub-only app entries, such as Seedling, should link directly to GitHub and set `detailPage: false` so `/apps/<id>` does not create an accidental local page.
 
 `vercel.json` has explicit redirects for migrated external projects and explicit rewrites for local app folders before the catch-all SPA rewrite. Keep app landing rewrites above:
 

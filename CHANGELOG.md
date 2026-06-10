@@ -6,6 +6,7 @@ All notable changes to the KIKA site are documented here.
 
 ### Added
 
+- Added Seedling to the apps index as a GitHub-only entry.
 - Added this changelog to track user-facing site updates over time.
 - Documented the rule that relevant docs must be reviewed and updated before every commit.
 

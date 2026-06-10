@@ -346,6 +346,19 @@ const AppIcon = ({ id, className = "" }: { id: string; className?: string }) => 
           </svg>
         </div>
       );
+    case "seedling":
+      return (
+        <div className={`${iconBase} ${className}`}>
+          <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full text-accent">
+            <rect x="14" y="16" width="72" height="68" stroke="currentColor" strokeWidth="4" />
+            <path d="M50 72V43" stroke="currentColor" strokeWidth="5" strokeLinecap="square" />
+            <path d="M50 47C38 47 30 40 30 29C42 29 50 36 50 47Z" fill="currentColor" fillOpacity="0.16" stroke="currentColor" strokeWidth="3" />
+            <path d="M50 55C64 55 72 47 72 35C58 35 50 43 50 55Z" fill="currentColor" fillOpacity="0.16" stroke="currentColor" strokeWidth="3" />
+            <path d="M31 73H69" stroke="currentColor" strokeWidth="4" strokeLinecap="square" />
+            <text x="18" y="94" fill="currentColor" fontSize="8" fontWeight="900" fontFamily="monospace">SEED</text>
+          </svg>
+        </div>
+      );
     case "undrdr":
       return (
         <div className={`${iconBase} ${className}`}>
@@ -407,6 +420,21 @@ const APPS = [
     accent: "#8c8c8c",
     surface: "#1a1a1a",
     group: "NEW"
+  },
+  {
+    id: "seedling",
+    name: "Seedling",
+    description: "Plant reusable Markdown seed files into fresh project folders.",
+    longDescription: "Seedling is a local-first macOS project scaffolding tool for starting from reusable Markdown seed files instead of rebuilding every project by hand.",
+    badges: ["macOS", "SCAFFOLD"],
+    version: "GITHUB",
+    size: "REPO",
+    url: "https://github.com/aka-kika/Seedling",
+    accent: "#16a34a",
+    surface: "#07130d",
+    group: "NEW",
+    openInNewWindow: true,
+    detailPage: false
   },
   {
     id: "undrdr",
@@ -2064,7 +2092,7 @@ const routeFromPath = (pathname: string): { view: View; appId: string | null; bl
     return { view: "blog-detail", appId: null, blogId: blogMatch[1] };
   }
   if (path === "/apps") return { view: "apps", appId: null, blogId: null };
-  if (appMatch && APPS.some((app) => app.id === appMatch[1])) {
+  if (appMatch && APPS.some((app) => app.id === appMatch[1] && (app as any).detailPage !== false)) {
     return { view: "app-detail", appId: appMatch[1], blogId: null };
   }
   if (path === "/about") return { view: "about", appId: null, blogId: null };
