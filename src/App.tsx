@@ -379,6 +379,21 @@ const AppIcon = ({ id, className = "" }: { id: string; className?: string }) => 
 
 const APPS = [
   {
+    id: "seedling",
+    name: "Seedling",
+    description: "Plant reusable Markdown seed files into fresh project folders.",
+    longDescription: "Seedling is a local-first macOS project scaffolding tool for starting from reusable Markdown seed files instead of rebuilding every project by hand.",
+    badges: ["macOS", "SCAFFOLD"],
+    version: "GITHUB",
+    size: "REPO",
+    url: "https://github.com/aka-kika/Seedling",
+    accent: "#16a34a",
+    surface: "#07130d",
+    group: "NEW",
+    openInNewWindow: true,
+    detailPage: false
+  },
+  {
     id: "missingpieces",
     name: "missingpieces",
     description: "A calm macOS menu bar companion for Pieces OS next steps.",
@@ -420,21 +435,6 @@ const APPS = [
     accent: "#8c8c8c",
     surface: "#1a1a1a",
     group: "NEW"
-  },
-  {
-    id: "seedling",
-    name: "Seedling",
-    description: "Plant reusable Markdown seed files into fresh project folders.",
-    longDescription: "Seedling is a local-first macOS project scaffolding tool for starting from reusable Markdown seed files instead of rebuilding every project by hand.",
-    badges: ["macOS", "SCAFFOLD"],
-    version: "GITHUB",
-    size: "REPO",
-    url: "https://github.com/aka-kika/Seedling",
-    accent: "#16a34a",
-    surface: "#07130d",
-    group: "NEW",
-    openInNewWindow: true,
-    detailPage: false
   },
   {
     id: "undrdr",

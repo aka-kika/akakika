@@ -12,6 +12,7 @@ All notable changes to the KIKA site are documented here.
 
 ### Changed
 
+- Moved Seedling to the top of the new apps section and documented newest-first app ordering.
 - Pointed UNDRDR traffic to `undrdr.com` and kept KIKA Brand Lab on the local `/brand` app route.
 - Removed the old static UNDRDR bundle and `akakika.com/undrdr` sitemap entries from this site.
 - Added production route ownership and deploy safety rules to `AGENTS.md`.

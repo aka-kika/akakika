@@ -34,6 +34,11 @@ This repository is the KIKA site for `akakika.com`.
 - Do not delete user files during cleanup unless explicitly asked.
 - Keep root focused on app source/config: `src/`, `public/`, `templates/`, package files, Vite/TS/Vercel config, and docs.
 
+## App Index Rules
+
+- Add new app entries at the top of their group in `src/App.tsx`.
+- Keep the `NEW` apps group newest-first so the latest app appears first on `/apps`.
+
 ## Documentation Rules
 
 - Before every commit, check whether the change affects project behavior, deploy flow, public content, routes, templates, cleanup rules, or agent instructions.

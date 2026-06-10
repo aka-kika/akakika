@@ -80,6 +80,7 @@ The `/apps` page links directly to each app's real landing page:
 
 Those landing pages live under `public/<app>/` and are copied by Vite into `dist/<app>/`.
 GitHub-only app entries, such as Seedling, should link directly to GitHub and set `detailPage: false` so `/apps/<id>` does not create an accidental local page.
+Add new app entries at the top of their group in `src/App.tsx`; the `NEW` group is displayed newest-first.
 
 `vercel.json` has explicit redirects for migrated external projects and explicit rewrites for local app folders before the catch-all SPA rewrite. Keep app landing rewrites above:
 
